@@ -1,0 +1,345 @@
+!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Integrated Technology Consultants (ITC)</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Raleway:wght@400&family=Source+Sans+Pro:wght@400&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Custom styles for fonts */
+        .font-montserrat { font-family: 'Montserrat', sans-serif; }
+        .font-raleway { font-family: 'Raleway', sans-serif; }
+        .font-source-sans-pro { font-family: 'Source Sans Pro', sans-serif; }
+
+        /* Base Brand Colors */
+        :root {
+            --giants-orange: #f15a29;
+            --eerie-black: #21201e;
+            --silver: #b4afa5;
+            --white: #fcfcfc;
+            --night: #121212;
+        }
+
+        /* Dynamic Colors based on Theme */
+        :root {
+            /* Light Mode Defaults */
+            --color-primary-bg: var(--white); /* body background */
+            --color-primary-text: var(--eerie-black); /* body text */
+            --color-secondary-bg: var(--silver); /* section background for services */
+            --color-header-bg: var(--white);
+            --color-header-shadow: rgba(0,0,0,0.1);
+            --color-card-bg: var(--white);
+            --color-card-border: var(--silver);
+            --color-button-bg: var(--eerie-black);
+            --color-button-text: var(--white);
+            --color-button-hover-bg: var(--silver);
+            --color-button-hover-text: var(--eerie-black);
+            --color-link-text: var(--eerie-black);
+            --color-link-hover: var(--giants-orange);
+            --color-footer-bg: var(--night);
+            --color-footer-text: var(--silver);
+            --color-partners-bg: var(--eerie-black); /* Background for strategic partners section */
+            --color-partners-text: var(--white); /* Text color for strategic partners section */
+            --color-toggle-icon: var(--eerie-black); /* Color of the theme toggle icon */
+            --color-star: rgba(180, 175, 165, 0.4); /* Stars color in light mode (silver with transparency) */
+        }
+
+        html[data-theme="dark"] {
+            /* Dark Mode Overrides */
+            --color-primary-bg: var(--night);
+            --color-primary-text: var(--white);
+            --color-secondary-bg: var(--eerie-black);
+            --color-header-bg: var(--night);
+            --color-header-shadow: rgba(255,255,255,0.1); /* Lighter shadow for dark mode */
+            --color-card-bg: var(--night);
+            --color-card-border: var(--eerie-black);
+            --color-button-bg: var(--silver);
+            --color-button-text: var(--eerie-black);
+            --color-button-hover-bg: var(--giants-orange);
+            --color-button-hover-text: var(--white);
+            --color-link-text: var(--white);
+            --color-link-hover: var(--giants-orange);
+            --color-footer-bg: var(--night);
+            --color-footer-text: var(--silver);
+            --color-partners-bg: var(--night);
+            --color-partners-text: var(--silver);
+            --color-toggle-icon: var(--white);
+            --color-star: rgba(252, 252, 252, 0.6); /* Stars color in dark mode (white with transparency) */
+        }
+
+        /* Apply dynamic colors to Tailwind classes */
+        .bg-primary { background-color: var(--color-primary-bg); }
+        .text-primary { color: var(--color-primary-text); }
+        .bg-secondary { background-color: var(--color-secondary-bg); }
+        .bg-header { background-color: var(--color-header-bg); }
+        .shadow-header { box-shadow: 0 4px 6px -1px var(--color-header-shadow), 0 2px 4px -2px var(--color-header-shadow); }
+        .bg-card { background-color: var(--color-card-bg); }
+        .border-card { border-color: var(--color-card-border); }
+        .bg-button { background-color: var(--color-button-bg); }
+        .text-button { color: var(--color-button-text); }
+        .hover-bg-button-hover:hover { background-color: var(--color-button-hover-bg); }
+        .hover-text-button-hover:hover { color: var(--color-button-hover-text); }
+        .text-link { color: var(--color-link-text); }
+        .hover-text-link-hover:hover { color: var(--color-link-hover); }
+        .bg-footer { background-color: var(--color-footer-bg); }
+        .text-footer { color: var(--color-footer-text); }
+        .bg-partners { background-color: var(--color-partners-bg); }
+        .text-partners { color: var(--color-partners-text); }
+        .text-toggle-icon { color: var(--color-toggle-icon); }
+
+
+        /* Ensure consistent padding for sections */
+        section {
+            padding-top: 4rem; /* Equivalent to py-16 */
+            padding-bottom: 4rem; /* Equivalent to py-16 */
+        }
+
+        /* Ensure consistent container width and centering */
+        .container {
+            width: 100%;
+            max-width: 1200px; /* Max width for larger screens */
+            margin-left: auto;
+            margin-right: auto;
+            padding-left: 1.5rem; /* Equivalent to px-6 */
+            padding-right: 1.5rem; /* Equivalent to px-6 */
+        }
+
+        /* Responsive grid adjustments */
+        .grid-cols-1-md-2 {
+            grid-template-columns: 1fr;
+        }
+        @media (min-width: 768px) { /* md breakpoint */
+            .grid-template-columns: repeat(2, 1fr);
+        }
+
+        /* Star background animation */
+        @keyframes twinkle {
+            0%, 100% { opacity: 0; transform: scale(0.8); }
+            50% { opacity: 1; transform: scale(1.2); }
+        }
+
+        #stars-container span {
+            background-color: var(--color-star); /* Uses dynamic star color */
+            animation-name: twinkle;
+            animation-iteration-count: infinite;
+            position: absolute; /* Needed for positioning */
+            border-radius: 50%; /* Make them round */
+        }
+    </style>
+</head>
+<body class="bg-primary text-primary font-source-sans-pro">
+
+    <div id="stars-container" class="fixed inset-0 pointer-events-none z-[-1] overflow-hidden"></div>
+
+    <header class="bg-header shadow-header py-4">
+        <div class="container flex justify-between items-center">
+            <div class="flex-shrink-0">
+                <img src="https://raw.githubusercontent.com/itc-in/assets/refs/heads/main/images/logo.svg" alt="Integrated Technology Consultants Logo" class="h-10 md:h-12">
+            </div>
+            <nav class="flex items-center space-x-4 md:space-x-6">
+                <ul class="flex space-x-4 md:space-x-6">
+                    <li><a href="#about" class="text-link hover-text-link-hover font-raleway text-sm md:text-base smooth-scroll">About</a></li>
+                    <li><a href="#services" class="text-link hover-text-link-hover font-raleway text-sm md:text-base smooth-scroll">Services</a></li>
+                    <li><a href="#pricing" class="text-link hover-text-link-hover font-raleway text-sm md:text-base smooth-scroll">Pricing</a></li>
+                    <li><a href="#contact" class="text-link hover-text-link-hover font-raleway text-sm md:text-base smooth-scroll">Contact</a></li>
+                </ul>
+                <button id="theme-toggle" class="p-2 rounded-full focus:outline-none focus:ring-2 focus:ring-giants-orange">
+                    <svg id="sun-icon" class="w-6 h-6 text-toggle-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h1M4 12H3m15.325 5.325l-.707.707M6.364 6.364l-.707-.707m12.728 0l-.707-.707M6.364 17.636l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path>
+                    </svg>
+                    <svg id="moon-icon" class="w-6 h-6 text-toggle-icon hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
+                    </svg>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <section class="bg-giants-orange text-white text-center">
+        <div class="container">
+            <h1 class="text-4xl md:text-5xl font-bold font-montserrat mb-4">Integrated Technology Consultants</h1>
+            <p class="text-xl md:text-2xl font-raleway mb-8">Bridging the gap between technology and independent living.</p>
+            <a href="#contact" class="bg-button text-button font-bold py-3 px-8 rounded-full hover-bg-button-hover hover-text-button-hover transition duration-300 inline-block smooth-scroll">Get in Touch</a>
+        </div>
+    </section>
+
+    <section id="about" class="bg-primary text-primary">
+        <div class="container">
+            <h2 class="text-3xl font-bold font-montserrat text-primary mb-8 text-center">About Us</h2>
+            <div class="max-w-3xl mx-auto text-center">
+                <p class="text-lg mb-4">Based in Huntington, Indiana, Integrated Technology Consultants is dedicated to empowering individuals of all abilities through technology. We specialize in seamlessly integrating smart home, remote monitoring, and assistive technologies into support systems.</p>
+                <p class="text-lg">Our mission is to enable more independent and fulfilled lives by bridging the gap between technological capabilities and unique individual needs. We work closely with service providers, schools, home builders, and other organizations to implement effective and reliable technology solutions.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="bg-secondary text-primary">
+        <div class="container">
+            <h2 class="text-3xl font-bold font-montserrat text-primary mb-8 text-center">Our Services</h2>
+            <div class="grid grid-cols-1-md-2 gap-10">
+                <div class="bg-card p-8 rounded-lg shadow-md">
+                    <h3 class="text-2xl font-bold font-raleway text-giants-orange mb-4">Consulting Services</h3>
+                    <p class="text-lg mb-4">Specialized technology integration focused on supporting individuals with Intellectual and Developmental Disabilities (IDD):</p>
+                    <ul class="list-disc list-inside text-lg space-y-2">
+                        <li>Smart home integrations</li>
+                        <li>Remote monitoring systems</li>
+                        <li>Assistive technology implementation</li>
+                        <li>Technology needs assessment and planning</li>
+                    </ul>
+                </div>
+                <div class="bg-card p-8 rounded-lg shadow-md">
+                    <h3 class="text-2xl font-bold font-raleway text-giants-orange mb-4">General IT Contracting Services</h3>
+                    <p class="text-lg mb-4">Comprehensive IT support solutions for various organizations:</p>
+                    <ul class="list-disc list-inside text-lg space-y-2">
+                        <li>Infrastructure setup for new builds</li>
+                        <li>Technology implementation for schools</li>
+                        <li>General IT support and maintenance</li>
+                        <li>Systems integration and networking</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="pricing" class="bg-primary text-primary">
+        <div class="container">
+            <h2 class="text-3xl font-bold font-montserrat text-primary mb-8 text-center">Pricing Models</h2>
+            <div class="grid grid-cols-1-md-2 gap-10">
+                <div class="bg-card p-8 rounded-lg shadow-md border border-card">
+                    <h3 class="text-2xl font-bold font-raleway text-giants-orange mb-4">Consulting</h3>
+                    <ul class="list-disc list-inside text-lg space-y-2">
+                        <li>Flat-fee engagements per project</li>
+                        <li>Tiered pricing for ongoing support</li>
+                        <li>Subscription model for long-term implementation partners</li>
+                    </ul>
+                </div>
+                <div class="bg-card p-8 rounded-lg shadow-md border border-card">
+                    <h3 class="text-2xl font-bold font-raleway text-giants-orange mb-4">IT Contracting</h3>
+                    <ul class="list-disc list-inside text-lg space-y-2">
+                        <li>Hourly support rates</li>
+                        <li>Fixed-rate packages for infrastructure build-outs</li>
+                        <li>Retainer options for maintenance contracts</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="bg-partners text-partners text-center">
+        <div class="container">
+            <h2 class="text-3xl font-bold font-montserrat text-partners mb-8">Strategic Partnerships</h2>
+            <p class="text-lg mb-8">We partner with industry leaders to bring you the best solutions.</p>
+            <div class="flex flex-col md:flex-row justify-center items-center space-y-6 md:space-y-0 md:space-x-10">
+                <div class="text-xl font-bold font-raleway text-silver">Simply-Home</div>
+                <div class="text-xl font-bold font-raleway text-silver">Shift</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="bg-primary text-primary">
+        <div class="container">
+            <h2 class="text-3xl font-bold font-montserrat text-primary mb-8 text-center">What Sets Us Apart</h2>
+            <div class="max-w-3xl mx-auto text-center text-lg">
+                <p>What sets ITC apart is our deep understanding of IDD service needs. Unlike general tech vendors who have broad IT knowledge but limited understanding of this specific area, we bridge the gap between technology capabilities and the unique requirements of IDD service providers.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="bg-giants-orange text-white text-center">
+        <div class="container">
+            <h2 class="text-3xl font-bold font-montserrat text-white mb-8">Get in Touch</h2>
+            <p class="text-xl font-raleway mb-8">We are based in Huntington, Indiana.</p>
+            <p class="text-xl font-raleway mb-8">For inquiries, please contact us at:</p>
+            <p class="text-2xl font-bold font-montserrat"><a href="mailto:info@ITC-in.com" class="text-white hover:text-eerie-black transition duration-300">info@ITC-in.com</a></p>
+        </div>
+    </section>
+
+    <footer class="bg-footer text-footer py-8">
+        <div class="container text-center text-sm">
+            <p>&copy; 2025 Integrated Technology Consultants. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth Scrolling
+        document.querySelectorAll('a.smooth-scroll').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+
+                if (targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Dark Mode Toggle
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const sunIcon = document.getElementById('sun-icon');
+        const moonIcon = document.getElementById('moon-icon');
+        const htmlElement = document.documentElement; // The <html> tag
+        const starsContainer = document.getElementById('stars-container');
+
+        // Function to create and append stars
+        function createStars(numStars) {
+            starsContainer.innerHTML = ''; // Clear existing stars
+            for (let i = 0; i < numStars; i++) {
+                const star = document.createElement('span');
+                const size = Math.random() * 2 + 1; // 1px to 3px
+                star.style.width = `${size}px`;
+                star.style.height = `${size}px`;
+                star.style.left = `${Math.random() * 100}%`;
+                star.style.top = `${Math.random() * 100}%`;
+                star.style.animationDelay = `${Math.random() * 5}s`; // Random delay for twinkling
+                star.style.animationDuration = `${Math.random() * 3 + 2}s`; // Random duration for twinkling
+                starsContainer.appendChild(star);
+            }
+        }
+
+        // Function to set the theme
+        function setTheme(theme) {
+            if (theme === 'dark') {
+                htmlElement.setAttribute('data-theme', 'dark');
+                sunIcon.classList.add('hidden');
+                moonIcon.classList.remove('hidden');
+            } else {
+                htmlElement.removeAttribute('data-theme');
+                sunIcon.classList.remove('hidden');
+                moonIcon.classList.add('hidden');
+            }
+            localStorage.setItem('theme', theme); // Save preference
+        }
+
+        // Check for saved theme preference or system preference on load
+        document.addEventListener('DOMContentLoaded', () => {
+            const savedTheme = localStorage.getItem('theme');
+            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+            if (savedTheme) {
+                setTheme(savedTheme);
+            } else if (prefersDark) {
+                setTheme('dark');
+            } else {
+                setTheme('light');
+            }
+            createStars(150); // Create stars after theme is set for initial color
+        });
+
+        // Toggle theme on button click
+        themeToggleBtn.addEventListener('click', () => {
+            const currentTheme = htmlElement.getAttribute('data-theme');
+            if (currentTheme === 'dark') {
+                setTheme('light');
+            } else {
+                setTheme('dark');
+            }
+        });
+    </script>
+
+</body>
+</html>
