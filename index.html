@@ -3,343 +3,1104 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Integrated Technology Consultants (ITC)</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Raleway:wght@400&family=Source+Sans+Pro:wght@400&display=swap" rel="stylesheet">
-    <script src="https://cdn.tailwindcss.com"></script>
+    <meta name="description" content="Integrated Technology Consultants (ITC) - Expert consulting for independent living with easy-to-use smart home integration, assistive tech, and IT solutions for individuals with IDD in Huntington, Indiana.">
+    
+    <title>Integrated Technology Consultants (ITC) - Smart Home & Assistive Technology Consulting</title>
+    <link rel="canonical" href="https://www.itc-in.com/">
+    <meta property="og:title" content="Integrated Technology Consultants - Technology Consulting for Independent Living">
+    <meta property="og:description" content="Empowering individuals through expert smart home integration consulting, assistive technology guidance, and specialized IT solutions. Based in Huntington, Indiana.">
+    <meta property="og:image" content="https://www.itc-in.com/images/og-image.jpg"> <meta property="og:url" content="https://www.itc-in.com/">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Raleway:wght@400&family=Source+Sans+Pro:wght@400;700&display=swap" as="style">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Raleway:wght@400&family=Source+Sans+Pro:wght@400;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "Integrated Technology Consultants",
+        "url": "https://www.itc-in.com",
+        "logo": "https://raw.githubusercontent.com/itc-in/assets/refs/heads/main/images/logo.svg",
+        "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Huntington",
+            "addressRegion": "IN",
+            "addressCountry": "US"
+        },
+        "email": "info@ITC-in.com",
+        "telephone": "+1-260-555-0100",
+        "description": "Expert technology consulting specializing in smart home integration and assistive technology guidance for individuals with intellectual and developmental disabilities. We help you select, set up, and learn to use technology for greater independence."
+    }
+    </script>
+    
     <style>
-        /* Custom styles for fonts */
-        .font-montserrat { font-family: 'Montserrat', sans-serif; }
-        .font-raleway { font-family: 'Raleway', sans-serif; }
-        .font-source-sans-pro { font-family: 'Source Sans Pro', sans-serif; }
-
-        /* Base Brand Colors */
         :root {
-            --giants-orange: #f15a29;
-            --eerie-black: #21201e;
-            --silver: #b4afa5;
-            --white: #fcfcfc;
-            --night: #121212;
-        }
+            /* Logo Color - slightly softened */
+            --giants-orange: #EF5724; /* Original: #f15a29 */
+            --giants-orange-darker-hover: #D64A1E; /* Original: #d94f20 */
+            --giants-orange-lighter-hover: #FF855C; /* Original: #ff8c66 */
 
-        /* Dynamic Colors based on Theme */
-        :root {
-            /* Light Mode Defaults */
-            --color-primary-bg: var(--white); /* body background */
-            --color-primary-text: var(--eerie-black); /* body text */
-            --color-secondary-bg: var(--silver); /* section background for services */
-            --color-header-bg: var(--white);
-            --color-header-shadow: rgba(0,0,0,0.1);
-            --color-card-bg: var(--white);
-            --color-card-border: var(--silver);
-            --color-button-bg: var(--eerie-black);
-            --color-button-text: var(--white);
-            --color-button-hover-bg: var(--silver);
-            --color-button-hover-text: var(--eerie-black);
-            --color-link-text: var(--eerie-black);
-            --color-link-hover: var(--giants-orange);
-            --color-footer-bg: var(--night);
-            --color-footer-text: var(--silver);
-            --color-partners-bg: var(--eerie-black); /* Background for strategic partners section */
-            --color-partners-text: var(--white); /* Text color for strategic partners section */
-            --color-toggle-icon: var(--eerie-black); /* Color of the theme toggle icon */
-            --color-star: rgba(180, 175, 165, 0.4); /* Stars color in light mode (silver with transparency) */
+
+            /* Typography */
+            --font-heading: 'Montserrat', sans-serif;
+            --font-subheading: 'Raleway', sans-serif;
+            --font-body: 'Source Sans Pro', sans-serif;
+
+            /* Light Mode Colors */
+            --color-bg-primary-light: #f9fafb; /* Slightly softer than #f8f9fa */
+            --color-bg-secondary-light: #f3f4f6; /* Slightly softer than #e9ecef */
+            --color-bg-card-light: #ffffff;
+            --color-text-primary-light: #2d3748; /* Darker for better contrast */
+            --color-text-secondary-light: #4a5568;
+            --color-border-light: #e2e8f0; /* Softer border */
+            --color-accent-light: var(--giants-orange);
+            --color-accent-hover-light: var(--giants-orange-darker-hover);
+            --color-link-light: var(--giants-orange);
+            --color-link-hover-light: var(--giants-orange-darker-hover);
+            --color-header-bg-light: rgba(249, 250, 251, 0.85); /* Added alpha for backdrop */
+            --color-header-shadow-light: rgba(0,0,0,0.03); /* Softer shadow */
+            --color-footer-bg-light: #2d3748;
+            --color-footer-text-light: #a0aec0;
+            --color-toggle-icon-light: #2d3748;
+            --color-logo-shadow-light: rgba(45, 55, 72, 0.5); /* Darker for light mode triangle */
+
+
+            /* Dark Mode Colors */
+            --color-bg-primary-dark: #1a202c; /* Common dark bg */
+            --color-bg-secondary-dark: #2d3748;
+            --color-bg-card-dark: #252a36; /* Slightly lighter than secondary for card */
+            --color-text-primary-dark: #e2e8f0;
+            --color-text-secondary-dark: #a0aec0;
+            --color-border-dark: #4a5568;
+            --color-accent-dark: var(--giants-orange);
+            --color-accent-hover-dark: var(--giants-orange-lighter-hover);
+            --color-link-dark: var(--giants-orange);
+            --color-link-hover-dark: var(--giants-orange-lighter-hover);
+            --color-header-bg-dark: rgba(26, 32, 44, 0.85); /* Added alpha for backdrop */
+            --color-header-shadow-dark: rgba(255,255,255,0.03); /* Softer shadow */
+            --color-footer-bg-dark: #111827; /* Darker footer */
+            --color-footer-text-dark: #9ca3af;
+            --color-toggle-icon-dark: #e2e8f0;
+            --color-logo-shadow-dark: rgba(226, 232, 240, 0.6); /* Lighter for dark mode triangle */
+
+
+            /* Applied dynamically based on theme */
+            --color-bg-primary: var(--color-bg-primary-light);
+            --color-bg-secondary: var(--color-bg-secondary-light);
+            --color-bg-card: var(--color-bg-card-light);
+            --color-text-primary: var(--color-text-primary-light);
+            --color-text-secondary: var(--color-text-secondary-light);
+            --color-border: var(--color-border-light);
+            --color-accent: var(--color-accent-light);
+            --color-accent-hover: var(--color-accent-hover-light);
+            --color-link: var(--color-link-light);
+            --color-link-hover: var(--color-link-hover-light);
+            --color-header-bg: var(--color-header-bg-light);
+            --color-header-shadow: var(--color-header-shadow-light);
+            --color-footer-bg: var(--color-footer-bg-light);
+            --color-footer-text: var(--color-footer-text-light);
+            --color-toggle-icon: var(--color-toggle-icon-light);
+            --color-logo-shadow-triangle: var(--color-logo-shadow-light);
         }
 
         html[data-theme="dark"] {
-            /* Dark Mode Overrides */
-            --color-primary-bg: var(--night);
-            --color-primary-text: var(--white);
-            --color-secondary-bg: var(--eerie-black);
-            --color-header-bg: var(--night);
-            --color-header-shadow: rgba(255,255,255,0.1); /* Lighter shadow for dark mode */
-            --color-card-bg: var(--night);
-            --color-card-border: var(--eerie-black);
-            --color-button-bg: var(--silver);
-            --color-button-text: var(--eerie-black);
-            --color-button-hover-bg: var(--giants-orange);
-            --color-button-hover-text: var(--white);
-            --color-link-text: var(--white);
-            --color-link-hover: var(--giants-orange);
-            --color-footer-bg: var(--night);
-            --color-footer-text: var(--silver);
-            --color-partners-bg: var(--night);
-            --color-partners-text: var(--silver);
-            --color-toggle-icon: var(--white);
-            --color-star: rgba(252, 252, 252, 0.6); /* Stars color in dark mode (white with transparency) */
+            --color-bg-primary: var(--color-bg-primary-dark);
+            --color-bg-secondary: var(--color-bg-secondary-dark);
+            --color-bg-card: var(--color-bg-card-dark);
+            --color-text-primary: var(--color-text-primary-dark);
+            --color-text-secondary: var(--color-text-secondary-dark);
+            --color-border: var(--color-border-dark);
+            --color-accent: var(--color-accent-dark);
+            --color-accent-hover: var(--color-accent-hover-dark);
+            --color-link: var(--color-link-dark);
+            --color-link-hover: var(--color-link-hover-dark);
+            --color-header-bg: var(--color-header-bg-dark);
+            --color-header-shadow: var(--color-header-shadow-dark);
+            --color-footer-bg: var(--color-footer-bg-dark);
+            --color-footer-text: var(--color-footer-text-dark);
+            --color-toggle-icon: var(--color-toggle-icon-dark);
+            --color-logo-shadow-triangle: var(--color-logo-shadow-dark);
         }
 
-        /* Apply dynamic colors to Tailwind classes */
-        .bg-primary { background-color: var(--color-primary-bg); }
-        .text-primary { color: var(--color-primary-text); }
-        .bg-secondary { background-color: var(--color-secondary-bg); }
-        .bg-header { background-color: var(--color-header-bg); }
-        .shadow-header { box-shadow: 0 4px 6px -1px var(--color-header-shadow), 0 2px 4px -2px var(--color-header-shadow); }
-        .bg-card { background-color: var(--color-card-bg); }
-        .border-card { border-color: var(--color-card-border); }
-        .bg-button { background-color: var(--color-button-bg); }
-        .text-button { color: var(--color-button-text); }
-        .hover-bg-button-hover:hover { background-color: var(--color-button-hover-bg); }
-        .hover-text-button-hover:hover { color: var(--color-button-hover-text); }
-        .text-link { color: var(--color-link-text); }
-        .hover-text-link-hover:hover { color: var(--color-link-hover); }
-        .bg-footer { background-color: var(--color-footer-bg); }
-        .text-footer { color: var(--color-footer-text); }
-        .bg-partners { background-color: var(--color-partners-bg); }
-        .text-partners { color: var(--color-partners-text); }
-        .text-toggle-icon { color: var(--color-toggle-icon); }
-
-
-        /* Ensure consistent padding for sections */
-        section {
-            padding-top: 4rem; /* Equivalent to py-16 */
-            padding-bottom: 4rem; /* Equivalent to py-16 */
+        /* Reset and base styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
 
-        /* Ensure consistent container width and centering */
+        body {
+            background-color: var(--color-bg-primary);
+            color: var(--color-text-primary);
+            font-family: var(--font-body);
+            line-height: 1.7; /* Increased for better readability */
+            transition: background-color 0.3s ease, color 0.3s ease;
+            overflow-x: hidden;
+            position: relative; /* For canvas positioning */
+        }
+
+        /* Network Animation Canvas */
+        #network-canvas {
+            position: absolute; /* Changed from fixed */
+            top: 0;
+            left: 0;
+            width: 100%; 
+            /* Height will be set by JS to document scrollHeight */
+            z-index: -1;
+            pointer-events: none;
+            opacity: 0.25; /* Slightly adjusted opacity */
+            transition: opacity 0.3s ease;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            #network-canvas {
+                display: none;
+            }
+        }
+
+        /* Accessibility - Focus styles */
+        :focus-visible { /* Modern focus styling */
+            outline: 3px solid var(--color-accent);
+            outline-offset: 3px;
+            box-shadow: 0 0 0 5px rgba(var(--giants-orange-rgb, 239, 87, 36), 0.3); /* Use RGB for accent if defined or fallback */
+        }
+
+
+        /* Skip to main content link */
+        .skip-link {
+            position: absolute;
+            top: -50px; /* Hidden off-screen */
+            left: 0;
+            background: var(--color-accent);
+            color: white;
+            padding: 10px 15px;
+            text-decoration: none;
+            z-index: 1000; /* Ensure it's on top */
+            transition: top 0.3s ease-in-out;
+        }
+
+        .skip-link:focus {
+            top: 10px;
+            left: 10px;
+        }
+
+        /* Reduced motion support */
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+                scroll-behavior: auto !important;
+            }
+        }
+
+        /* Container */
         .container {
             width: 100%;
-            max-width: 1200px; /* Max width for larger screens */
-            margin-left: auto;
-            margin-right: auto;
-            padding-left: 1.5rem; /* Equivalent to px-6 */
-            padding-right: 1.5rem; /* Equivalent to px-6 */
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
         }
 
-        /* Responsive grid adjustments */
-        .grid-cols-1-md-2 {
-            grid-template-columns: 1fr;
+        /* Header */
+        header {
+            background-color: var(--color-header-bg);
+            box-shadow: 0 1px 3px 0 var(--color-header-shadow), 0 1px 2px -1px var(--color-header-shadow); /* Softer shadow */
+            position: sticky;
+            top: 0;
+            z-index: 500; /* Increased z-index */
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
         }
-        @media (min-width: 768px) { /* md breakpoint */
-            .grid-template-columns: repeat(2, 1fr);
+        
+        .logo-container { /* New wrapper for logo and its pseudo-element shadow */
+            position: relative;
+            display: inline-block; /* To wrap the logo image */
         }
 
-        /* Star background animation */
-        @keyframes twinkle {
-            0%, 100% { opacity: 0; transform: scale(0.8); }
-            50% { opacity: 1; transform: scale(1.2); }
+        .company-logo {
+            height: 3rem; /* Base size */
+            display: block; /* Remove extra space below image */
+            position: relative; /* To ensure logo is above pseudo-element */
+            z-index: 2;
+             /* filter: drop-shadow(1px 1px 2px var(--color-logo-shadow)); REMOVED */
+        }
+        
+        /* Triangular "shadow" */
+        .logo-container::before {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 0;
+            border-left: 20px solid transparent; /* Adjust size of triangle */
+            border-right: 20px solid transparent; /* Adjust size of triangle */
+            border-bottom: 30px solid var(--color-logo-shadow-triangle); /* Triangle color and height */
+            bottom: -10px; /* Position below the logo */
+            left: 50%;
+            transform: translateX(-50%) skewX(-20deg) rotate(5deg); /* Slight skew and rotation for style */
+            z-index: 1; /* Behind the logo */
+            opacity: 0.7;
+            transition: border-bottom-color 0.3s ease;
         }
 
-        #stars-container span {
-            background-color: var(--color-star); /* Uses dynamic star color */
-            animation-name: twinkle;
-            animation-iteration-count: infinite;
-            position: absolute; /* Needed for positioning */
-            border-radius: 50%; /* Make them round */
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 1.5rem;
+            align-items: center;
         }
+
+        nav a {
+            color: var(--color-text-primary); /* Changed from link color for better contrast in header */
+            text-decoration: none;
+            font-family: var(--font-subheading);
+            font-size: 1rem; /* Slightly larger */
+            font-weight: 500; /* Medium weight */
+            padding: 0.75rem 0.5rem; /* Adjusted padding */
+            border-radius: 4px;
+            transition: color 0.2s ease, background-color 0.2s ease;
+        }
+
+        nav a:hover, nav a:focus-visible {
+            color: var(--color-accent);
+            background-color: rgba(var(--giants-orange-rgb, 239, 87, 36), 0.1);
+        }
+        
+
+        @media (max-width: 768px) {
+            .company-logo { height: 2.5rem; }
+            .logo-container::before {
+                 border-left-width: 15px;
+                 border-right-width: 15px;
+                 border-bottom-width: 22px;
+                 bottom: -7px;
+            }
+            nav ul {
+                gap: 0.5rem; /* Reduced gap for smaller screens */
+            }
+            nav a {
+                font-size: 0.875rem;
+                padding: 0.6rem 0.4rem;
+            }
+        }
+
+        /* Sections */
+        section {
+            padding: 5rem 0; /* Increased padding */
+            transition: background-color 0.3s ease, color 0.3s ease;
+            position: relative; /* Ensure sections are above canvas if needed */
+            z-index: 1; 
+        }
+
+        .section-accent {
+            background-color: var(--color-accent);
+            color: #ffffff;
+        }
+
+        .section-accent h1,
+        .section-accent h2,
+        .section-accent p,
+        .section-accent a:not(.button-outline) { /* Exclude outline button */
+            color: #ffffff;
+        }
+        
+        .section-accent .button.button-outline { /* Style for button in accent section needing contrast */
+            background-color: #ffffff;
+            color: var(--color-accent);
+            border: 2px solid var(--color-accent); /* Keep border consistent if needed */
+        }
+        .section-accent .button.button-outline:hover {
+            background-color: rgba(255,255,255,0.9);
+            color: var(--giants-orange-darker-hover);
+        }
+
+
+        .section-secondary {
+            background-color: var(--color-bg-secondary);
+        }
+
+        /* Typography */
+        h1, h2, h3 {
+            font-family: var(--font-heading);
+            color: var(--color-text-primary);
+            margin-bottom: 1.25rem; /* Slightly more margin */
+            font-weight: 700;
+        }
+
+        h1 { font-size: clamp(2.25rem, 5.5vw, 3.25rem); line-height: 1.2; }
+        h2 { font-size: clamp(1.75rem, 4.5vw, 2.5rem); line-height: 1.3; }
+        h3 { font-size: clamp(1.35rem, 3.5vw, 1.75rem); line-height: 1.4; }
+
+        p {
+            color: var(--color-text-secondary);
+            margin-bottom: 1.25rem;
+            font-size: 1.05rem; /* Slightly larger body text */
+        }
+        
+        strong { font-weight: 700; color: var(--color-text-primary); }
+
+
+        /* Icons */
+        .icon-feature {
+            font-size: 3rem; /* Larger icons */
+            color: var(--color-accent);
+            margin-bottom: 1.25rem;
+        }
+
+        .icon-inline {
+            margin-right: 0.6rem;
+            color: var(--color-accent);
+        }
+
+        .section-accent .icon-feature,
+        .section-accent .icon-inline {
+            color: #ffffff;
+        }
+
+        /* Cards */
+        .card {
+            background-color: var(--color-bg-card);
+            border: 1px solid var(--color-border);
+            border-radius: 0.75rem; /* Softer radius */
+            padding: 2.5rem; /* More padding */
+            transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+            /* backdrop-filter: blur(8px); 
+            -webkit-backdrop-filter: blur(8px); */ /* Reduced blur or remove if too busy */
+            /* background-color: rgba(var(--color-bg-card-rgb, 255,255,255), 0.95); */ /* More opaque */
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05), 0 2px 4px -2px rgba(0,0,0,0.05); /* Softer shadow */
+        }
+
+        /* html[data-theme="dark"] .card {
+            background-color: rgba(37,42,54, 0.95); 
+        } */
+
+
+        .card:hover {
+            transform: translateY(-8px); /* Slightly more lift */
+            box-shadow: 0 12px 20px -4px rgba(0,0,0,0.08), 0 4px 8px -4px rgba(0,0,0,0.06); /* Enhanced shadow on hover */
+        }
+
+        html[data-theme="dark"] .card:hover {
+            box-shadow: 0 12px 20px -4px rgba(0,0,0,0.15), 0 4px 8px -4px rgba(0,0,0,0.1);
+        }
+
+        .card h3 {
+            color: var(--color-accent);
+            margin-bottom: 1rem;
+            font-size: 1.4rem; /* Adjusted card heading */
+        }
+
+        /* Feature Grid */
+        .feature-grid {
+            display: grid;
+            gap: 2.5rem; /* Adjusted gap */
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Min item width */
+            margin-top: 3rem;
+        }
+
+        .feature-item {
+            text-align: center;
+        }
+
+        .feature-item h3 {
+            margin-top: 1rem;
+            margin-bottom: 0.75rem;
+            font-size: 1.3rem; /* Adjusted feature item heading */
+            color: var(--color-text-primary);
+        }
+
+        .feature-item p {
+            font-size: 1rem;
+        }
+
+        /* Service List */
+        .service-list {
+            list-style: none;
+            margin: 1.5rem 0;
+            padding-left: 0; /* Remove default padding */
+        }
+
+        .service-list li {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 1.25rem; /* Increased spacing */
+            font-size: 1rem;
+        }
+
+        .service-list i {
+            flex-shrink: 0;
+            margin-top: 0.3rem; /* Align with text */
+            width: 20px; /* Ensure consistent icon spacing */
+            text-align: center;
+        }
+
+        /* Buttons */
+        .button {
+            display: inline-block;
+            background-color: var(--color-accent);
+            color: #ffffff;
+            font-weight: bold; /* Changed from 700 to bold keyword */
+            font-family: var(--font-subheading);
+            padding: 0.85rem 2.25rem; /* Slightly larger padding */
+            border-radius: 0.5rem; /* Less rounded for a more "pro" feel */
+            text-decoration: none;
+            transition: background-color 0.2s ease, transform 0.2s ease, color 0.2s ease;
+            font-size: 1rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .button:hover, .button:focus-visible {
+            background-color: var(--color-accent-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+        
+        .button:active {
+            transform: translateY(0);
+        }
+
+
+        .button i {
+            margin-left: 0.75rem; /* More space for icon */
+        }
+
+        /* Grid */
+        .grid {
+            display: grid;
+            gap: 2.5rem; /* Adjusted gap */
+        }
+
+        .grid-2 {
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); /* Min item width */
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--color-footer-bg);
+            color: var(--color-footer-text);
+            padding: 3rem 0; /* Increased padding */
+            transition: background-color 0.3s ease, color 0.3s ease;
+            position: relative;
+            z-index: 1;
+        }
+        footer p {
+            font-size: 0.95rem;
+            color: var(--color-footer-text);
+        }
+        footer a {
+            color: var(--color-footer-text);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+        footer a:hover {
+            color: var(--giants-orange); /* Accent on hover */
+            text-decoration: underline;
+        }
+
+
+        /* Theme toggle button */
+        .theme-toggle {
+            background: none;
+            border: 2px solid transparent; /* For focus state */
+            padding: 0.5rem;
+            cursor: pointer;
+            border-radius: 50%;
+            transition: background-color 0.2s ease, border-color 0.2s ease;
+            color: var(--color-toggle-icon); /* Ensures icon color inherits */
+        }
+
+        .theme-toggle:hover {
+            background-color: rgba(var(--color-text-primary-rgb, 0,0,0), 0.05); /* Use RGB if available */
+        }
+        html[data-theme="dark"] .theme-toggle:hover {
+             background-color: rgba(var(--color-text-primary-rgb, 255,255,255), 0.1);
+        }
+        .theme-toggle:focus-visible {
+            border-color: var(--color-accent);
+        }
+
+
+        .theme-toggle svg {
+            width: 1.5rem;
+            height: 1.5rem;
+            display: block; /* Prevents alignment issues */
+            /* color: var(--color-toggle-icon);  Set on parent */
+        }
+
+        /* Contact Info */
+        .contact-info {
+            display: grid;
+            gap: 2rem;
+            margin-top: 2.5rem; /* Increased margin */
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        }
+
+        .contact-item {
+            text-align: center;
+        }
+
+        .contact-item h3 {
+            color: #ffffff; /* Explicitly white for section-accent */
+            margin-bottom: 0.75rem; /* Increased margin */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.75rem; /* Increased gap */
+            font-size: 1.4rem;
+        }
+         .contact-item p a { /* Ensure links in contact section are white */
+            color: #ffffff;
+            font-weight: 500;
+        }
+        .contact-item p a:hover {
+            text-decoration: underline;
+            opacity: 0.9;
+        }
+
+
+        /* Utility classes */
+        .text-center { text-align: center; }
+        .mx-auto { margin-left: auto; margin-right: auto; }
+        .max-w-3xl { max-width: 52rem; } /* approx 832px, increased slightly */
+        .max-w-prose { max-width: 65ch; } /* For readable text blocks */
+        .mb-4 { margin-bottom: 1rem; }
+        .mb-8 { margin-bottom: 2.5rem; } /* Increased */
+        .mt-12 { margin-top: 3rem; } /* New utility */
+        .hidden { display: none !important; } /* Added important for JS toggling */
+
+         /* Define RGB versions of key colors for RGBA usage */
+        :root {
+            --giants-orange-rgb: 239, 87, 36; /* EF5724 */
+            --color-text-primary-light-rgb: 45, 55, 72;
+            --color-text-primary-dark-rgb: 226, 232, 240;
+        }
+        html[data-theme="light"] {
+            --color-text-primary-rgb: var(--color-text-primary-light-rgb);
+        }
+        html[data-theme="dark"] {
+            --color-text-primary-rgb: var(--color-text-primary-dark-rgb);
+        }
+
     </style>
 </head>
-<body class="bg-primary text-primary font-source-sans-pro">
+<body>
+    <a href="#main" class="skip-link">Skip to main content</a>
 
-    <div id="stars-container" class="fixed inset-0 pointer-events-none z-[-1] overflow-hidden"></div>
+    <canvas id="network-canvas" aria-hidden="true"></canvas>
 
-    <header class="bg-header shadow-header py-4">
-        <div class="container flex justify-between items-center">
-            <div class="flex-shrink-0">
-                <img src="https://raw.githubusercontent.com/itc-in/assets/refs/heads/main/images/logo.svg" alt="Integrated Technology Consultants Logo" class="h-10 md:h-12">
+    <header>
+        <div class="container" style="display: flex; justify-content: space-between; align-items: center; padding-top: 0.75rem; padding-bottom: 0.75rem;">
+            <div class="logo-container">
+                <img src="https://raw.githubusercontent.com/itc-in/assets/refs/heads/main/images/logo.svg" 
+                     alt="Integrated Technology Consultants - Empowering independent living through technology consulting"
+                     class="company-logo">
             </div>
-            <nav class="flex items-center space-x-4 md:space-x-6">
-                <ul class="flex space-x-4 md:space-x-6">
-                    <li><a href="#about" class="text-link hover-text-link-hover font-raleway text-sm md:text-base smooth-scroll">About</a></li>
-                    <li><a href="#services" class="text-link hover-text-link-hover font-raleway text-sm md:text-base smooth-scroll">Services</a></li>
-                    <li><a href="#pricing" class="text-link hover-text-link-hover font-raleway text-sm md:text-base smooth-scroll">Pricing</a></li>
-                    <li><a href="#contact" class="text-link hover-text-link-hover font-raleway text-sm md:text-base smooth-scroll">Contact</a></li>
+            <nav aria-label="Main navigation">
+                <ul>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#solutions">Solutions</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <li>
+                        <button class="theme-toggle" 
+                                id="theme-toggle" 
+                                aria-label="Toggle dark mode"
+                                aria-pressed="false">
+                            <svg id="sun-icon" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true"> <path fill-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-2.172 4.243a1 1 0 011.414 0l.707.707a1 1 0 01-1.414 1.414l-.707-.707a1 1 0 010-1.414zM4.24 5.636a1 1 0 00-1.414 1.414l.707.707a1 1 0 001.414-1.414l-.707-.707zM10 16a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM3 11a1 1 0 100-2H2a1 1 0 100 2h1z" clip-rule="evenodd"></path></svg>
+                            <svg id="moon-icon" class="hidden" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+                        </button>
+                    </li>
                 </ul>
-                <button id="theme-toggle" class="p-2 rounded-full focus:outline-none focus:ring-2 focus:ring-giants-orange">
-                    <svg id="sun-icon" class="w-6 h-6 text-toggle-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h1M4 12H3m15.325 5.325l-.707.707M6.364 6.364l-.707-.707m12.728 0l-.707-.707M6.364 17.636l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path>
-                    </svg>
-                    <svg id="moon-icon" class="w-6 h-6 text-toggle-icon hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
-                    </svg>
-                </button>
             </nav>
         </div>
     </header>
 
-    <section class="bg-giants-orange text-white text-center">
-        <div class="container">
-            <h1 class="text-4xl md:text-5xl font-bold font-montserrat mb-4">Integrated Technology Consultants</h1>
-            <p class="text-xl md:text-2xl font-raleway mb-8">Bridging the gap between technology and independent living.</p>
-            <a href="#contact" class="bg-button text-button font-bold py-3 px-8 rounded-full hover-bg-button-hover hover-text-button-hover transition duration-300 inline-block smooth-scroll">Get in Touch</a>
-        </div>
-    </section>
-
-    <section id="about" class="bg-primary text-primary">
-        <div class="container">
-            <h2 class="text-3xl font-bold font-montserrat text-primary mb-8 text-center">About Us</h2>
-            <div class="max-w-3xl mx-auto text-center">
-                <p class="text-lg mb-4">Based in Huntington, Indiana, Integrated Technology Consultants is dedicated to empowering individuals of all abilities through technology. We specialize in seamlessly integrating smart home, remote monitoring, and assistive technologies into support systems.</p>
-                <p class="text-lg">Our mission is to enable more independent and fulfilled lives by bridging the gap between technological capabilities and unique individual needs. We work closely with service providers, schools, home builders, and other organizations to implement effective and reliable technology solutions.</p>
+    <main id="main">
+        <section class="section-accent text-center">
+            <div class="container">
+                <h1 style="font-weight: 700;">Integrated Technology Consultants</h1>
+                <p class="max-w-prose mx-auto" style="font-size: 1.35rem; margin-bottom: 2.5rem; line-height: 1.5;">Expert guidance to help you live more independently with easy-to-use technology.</p>
+                <a href="#contact" class="button">Get Started Today <i class="fas fa-arrow-right"></i></a>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section id="services" class="bg-secondary text-primary">
-        <div class="container">
-            <h2 class="text-3xl font-bold font-montserrat text-primary mb-8 text-center">Our Services</h2>
-            <div class="grid grid-cols-1-md-2 gap-10">
-                <div class="bg-card p-8 rounded-lg shadow-md">
-                    <h3 class="text-2xl font-bold font-raleway text-giants-orange mb-4">Consulting Services</h3>
-                    <p class="text-lg mb-4">Specialized technology integration focused on supporting individuals with Intellectual and Developmental Disabilities (IDD):</p>
-                    <ul class="list-disc list-inside text-lg space-y-2">
-                        <li>Smart home integrations</li>
-                        <li>Remote monitoring systems</li>
-                        <li>Assistive technology implementation</li>
-                        <li>Technology needs assessment and planning</li>
-                    </ul>
-                </div>
-                <div class="bg-card p-8 rounded-lg shadow-md">
-                    <h3 class="text-2xl font-bold font-raleway text-giants-orange mb-4">General IT Contracting Services</h3>
-                    <p class="text-lg mb-4">Comprehensive IT support solutions for various organizations:</p>
-                    <ul class="list-disc list-inside text-lg space-y-2">
-                        <li>Infrastructure setup for new builds</li>
-                        <li>Technology implementation for schools</li>
-                        <li>General IT support and maintenance</li>
-                        <li>Systems integration and networking</li>
-                    </ul>
+        <section id="about" aria-labelledby="about-heading">
+            <div class="container">
+                <h2 id="about-heading" class="text-center mb-8">About Us: Your Technology Partners</h2>
+                <div class="max-w-prose mx-auto text-center">
+                    <p>Located in Huntington, Indiana, Integrated Technology Consultants (ITC) specializes in <strong>helping people of all abilities use technology to live more freely and independently</strong>. We are experts in assessing your needs and recommending smart home devices, remote support tools, and other assistive technologies that fit your unique life.</p>
+                    <p>Our core mission is to simplify daily life and enhance fulfillment by <strong>matching the right technology to your specific requirements and goals</strong>. We don't just install devices; we provide the consultation and guidance needed to ensure you or your clients can confidently use these tools. We partner with individuals, service providers, schools, and builders to create effective and dependable technology setups through careful planning and consultation.</p>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section id="pricing" class="bg-primary text-primary">
-        <div class="container">
-            <h2 class="text-3xl font-bold font-montserrat text-primary mb-8 text-center">Pricing Models</h2>
-            <div class="grid grid-cols-1-md-2 gap-10">
-                <div class="bg-card p-8 rounded-lg shadow-md border border-card">
-                    <h3 class="text-2xl font-bold font-raleway text-giants-orange mb-4">Consulting</h3>
-                    <ul class="list-disc list-inside text-lg space-y-2">
-                        <li>Flat-fee engagements per project</li>
-                        <li>Tiered pricing for ongoing support</li>
-                        <li>Subscription model for long-term implementation partners</li>
-                    </ul>
+        <section id="services" class="section-secondary" aria-labelledby="services-heading">
+            <div class="container">
+                <h2 id="services-heading" class="text-center mb-8">Our Consulting Services</h2>
+                <div class="grid grid-2">
+                    <div class="card">
+                        <div class="text-center">
+                            <i class="fas fa-hands-helping icon-feature"></i>
+                        </div>
+                        <h3>Assistive Technology Consulting & Setup</h3>
+                        <p>We provide <strong>expert advice, selection, and setup assistance</strong> for technology that empowers individuals, especially those with Intellectual and Developmental Disabilities (IDD). Our consulting services cover:</p>
+                        <ul class="service-list">
+                            <li><i class="fas fa-home icon-inline"></i>Guidance on user-friendly, voice-controlled smart home systems.</li>
+                            <li><i class="fas fa-video icon-inline"></i>Consultation on safety and remote support systems, helping you understand options for independent monitoring.</li>
+                            <li><i class="fas fa-brain icon-inline"></i>Identifying and implementing tech to aid with daily tasks and cognitive support.</li>
+                            <li><i class="fas fa-chart-line icon-inline"></i>Thorough needs assessment and creating a personalized technology integration plan.</li>
+                        </ul>
+                         <p><strong>Note:</strong> We consult on and help implement these technologies. We do not provide direct 24/7 monitoring services or active care ourselves but empower you or your chosen caregivers with the right tools.</p>
+                    </div>
+                    <div class="card">
+                        <div class="text-center">
+                            <i class="fas fa-cogs icon-feature"></i>
+                        </div>
+                        <h3>IT Infrastructure Consulting</h3>
+                        <p>We also offer comprehensive IT consulting for organizations, ensuring robust and reliable technology foundations. This includes:</p>
+                        <ul class="service-list">
+                            <li><i class="fas fa-wifi icon-inline"></i>Design and consultation for reliable internet and Wi-Fi networks.</li>
+                            <li><i class="fas fa-graduation-cap icon-inline"></i>Technology planning and integration consulting for educational settings.</li>
+                            <li><i class="fas fa-headset icon-inline"></i>Advising on system maintenance strategies and support planning.</li>
+                            <li><i class="fas fa-shield-alt icon-inline"></i>Consultation on secure access control for buildings and data protection strategies.</li>
+                        </ul>
+                    </div>
                 </div>
-                <div class="bg-card p-8 rounded-lg shadow-md border border-card">
-                    <h3 class="text-2xl font-bold font-raleway text-giants-orange mb-4">IT Contracting</h3>
-                    <ul class="list-disc list-inside text-lg space-y-2">
-                        <li>Hourly support rates</li>
-                        <li>Fixed-rate packages for infrastructure build-outs</li>
-                        <li>Retainer options for maintenance contracts</li>
-                    </ul>
+            </div>
+        </section>
+
+        <section id="solutions" aria-labelledby="solutions-heading">
+            <div class="container">
+                <h2 id="solutions-heading" class="text-center mb-8">Technology Solutions We Consult On</h2>
+                <p class="text-center max-w-prose mx-auto mb-8">We help you navigate, select, and implement a wide range of technologies. Our expertise is in understanding your needs and configuring these tools effectively for you.</p>
+                <div class="feature-grid">
+                    <div class="feature-item">
+                        <i class="fas fa-home icon-feature"></i>
+                        <h3>Smart Home Setup Guidance</h3>
+                        <p>We'll help you design and implement voice-controlled home systems for easier, more independent living.</p>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-video icon-feature"></i>
+                        <h3>Remote Support System Advice</h3>
+                        <p>Consulting on secure cameras and sensors to enable remote support, always prioritizing privacy and dignity.</p>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-door-open icon-feature"></i>
+                        <h3>Smart Lock & Entry Solutions</h3>
+                        <p>Advising on secure, key-free access solutions for your home or facility.</p>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-lightbulb icon-feature"></i>
+                        <h3>Automated Lighting Systems</h3>
+                        <p>Planning for lights that activate when needed, enhancing safety and energy efficiency.</p>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-bell icon-feature"></i>
+                        <h3>Custom Alert System Design</h3>
+                        <p>Helping you configure systems to send important updates to designated caregivers or family members.</p>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-mobile-alt icon-feature"></i>
+                        <h3>Centralized Control Setup</h3>
+                        <p>Assistance in managing your chosen tech systems easily from a smartphone or tablet.</p>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section class="bg-partners text-partners text-center">
-        <div class="container">
-            <h2 class="text-3xl font-bold font-montserrat text-partners mb-8">Strategic Partnerships</h2>
-            <p class="text-lg mb-8">We partner with industry leaders to bring you the best solutions.</p>
-            <div class="flex flex-col md:flex-row justify-center items-center space-y-6 md:space-y-0 md:space-x-10">
-                <div class="text-xl font-bold font-raleway text-silver">Simply-Home</div>
-                <div class="text-xl font-bold font-raleway text-silver">Shift</div>
+        <section class="section-secondary" aria-labelledby="differentiator-heading">
+            <div class="container">
+                <h2 id="differentiator-heading" class="text-center mb-8"><i class="fas fa-microchip icon-inline"></i>What Sets Our Consulting Apart</h2>
+                <div class="max-w-prose mx-auto text-center">
+                    <p style="font-size: 1.125rem;">We stand out because we specialize in <strong>understanding the unique needs of individuals requiring support services</strong>, especially for IDD. Many IT companies know technology, but our focus is on the crucial intersection of technology and human support. We excel at <strong>matching the right technology to the specific challenges and goals</strong> of the people we serve and their support networks, providing the consultation needed to make it work for *them*.</p>
+                    <div class="feature-grid" style="margin-top: 2.5rem; text-align: left;">
+                        <div>
+                            <h3><i class="fas fa-user-shield icon-inline"></i>Privacy-First Approach</h3>
+                            <p>We guide you in designing all solutions to protect privacy and uphold dignity.</p>
+                        </div>
+                        <div>
+                            <h3><i class="fas fa-plug icon-inline"></i>Seamless Integration Advice</h3>
+                            <p>We provide expertise to ensure new tech works harmoniously with existing setups, minimizing disruption.</p>
+                        </div>
+                        <div>
+                            <h3><i class="fas fa-users icon-inline"></i>Empowering Support Teams</h3>
+                            <p>Our consulting helps select and configure tech that enhances communication and collaboration for support teams.</p>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section class="bg-primary text-primary">
-        <div class="container">
-            <h2 class="text-3xl font-bold font-montserrat text-primary mb-8 text-center">What Sets Us Apart</h2>
-            <div class="max-w-3xl mx-auto text-center text-lg">
-                <p>What sets ITC apart is our deep understanding of IDD service needs. Unlike general tech vendors who have broad IT knowledge but limited understanding of this specific area, we bridge the gap between technology capabilities and the unique requirements of IDD service providers.</p>
+        <section id="contact" class="section-accent text-center" aria-labelledby="contact-heading">
+            <div class="container">
+                <h2 id="contact-heading" class="mb-8">Let's Discuss Your Technology Needs</h2>
+                <p class="mb-8 max-w-prose mx-auto" style="font-size: 1.2rem;">Ready to explore how expert technology consulting can make life easier and more independent? We're here to help you find and implement the right solutions.</p>
+                <div class="contact-info" style="max-width: 800px; margin-left: auto; margin-right: auto;">
+                    <div class="contact-item">
+                        <h3><i class="fas fa-envelope"></i> Email Us</h3>
+                        <p><a href="mailto:info@ITC-in.com">info@ITC-in.com</a></p>
+                    </div>
+                    <div class="contact-item">
+                        <h3><i class="fas fa-phone"></i> Call Us</h3>
+                        <p><a href="tel:+12605550100">(260) 555-0100</a></p>
+                    </div>
+                    <div class="contact-item">
+                        <h3><i class="fas fa-map-marker-alt"></i> Our Location</h3>
+                        <p>Serving Huntington, Indiana & Surrounding Areas</p>
+                    </div>
+                </div>
+                <div class="mt-12">
+                    <a href="#services" class="button button-outline">
+                        <i class="fas fa-laptop-house"></i> Explore Our Consulting Services
+                    </a>
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
+    </main>
 
-    <section id="contact" class="bg-giants-orange text-white text-center">
-        <div class="container">
-            <h2 class="text-3xl font-bold font-montserrat text-white mb-8">Get in Touch</h2>
-            <p class="text-xl font-raleway mb-8">We are based in Huntington, Indiana.</p>
-            <p class="text-xl font-raleway mb-8">For inquiries, please contact us at:</p>
-            <p class="text-2xl font-bold font-montserrat"><a href="mailto:info@ITC-in.com" class="text-white hover:text-eerie-black transition duration-300">info@ITC-in.com</a></p>
-        </div>
-    </section>
-
-    <footer class="bg-footer text-footer py-8">
-        <div class="container text-center text-sm">
+    <footer>
+        <div class="container text-center">
             <p>&copy; 2025 Integrated Technology Consultants. All rights reserved.</p>
+            <p style="margin-top: 0.75rem;">
+                <a href="/privacy" style="margin-right: 1.5rem;">Privacy Policy</a>
+                <a href="/terms">Terms of Service</a>
+            </p>
         </div>
     </footer>
 
     <script>
-        // Smooth Scrolling
-        document.querySelectorAll('a.smooth-scroll').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
+        // Network Animation
+        class NetworkAnimation {
+            constructor(canvasId) {
+                this.canvas = document.getElementById(canvasId);
+                if (!this.canvas) {
+                    console.error("Canvas element not found:", canvasId);
+                    return;
+                }
+                this.ctx = this.canvas.getContext('2d');
+                this.nodes = [];
+                this.mouse = { x: null, y: null, radius: 180 }; // Increased mouse radius
+                this.animationId = null;
+                this.isDarkMode = false;
+                this.resizeTimeout = null;
+                
+                this.reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+                
+                if (!this.reducedMotion) {
+                    this.init();
+                }
+            }
+            
+            init() {
+                if (!this.canvas || !this.ctx) return;
+                this.setCanvasDimensions(); // Initial set dimensions
+                this.createNodes();
+                this.addEventListeners();
+                this.animate();
+                // Set canvas height after initial elements are rendered to get a more accurate scrollHeight
+                // This helps if content loads dynamically or fonts cause layout shifts
+                setTimeout(() => this.setCanvasDimensions(), 100);
+            }
 
-                const targetId = this.getAttribute('href');
-                const targetElement = document.querySelector(targetId);
-
-                if (targetElement) {
-                    targetElement.scrollIntoView({
-                        behavior: 'smooth'
+            setCanvasDimensions() {
+                // Set canvas dimensions to match the full scrollable area of the body
+                this.canvas.width = Math.max(
+                    document.body.scrollWidth, document.documentElement.scrollWidth,
+                    document.body.offsetWidth, document.documentElement.offsetWidth,
+                    document.body.clientWidth, document.documentElement.clientWidth
+                );
+                this.canvas.height = Math.max(
+                    document.body.scrollHeight, document.documentElement.scrollHeight,
+                    document.body.offsetHeight, document.documentElement.offsetHeight,
+                    document.body.clientHeight, document.documentElement.clientHeight
+                );
+            }
+            
+            createNodes() {
+                this.nodes = [];
+                 // Adjust node count: less dense for very large canvas, slightly more nodes overall
+                const area = this.canvas.width * this.canvas.height;
+                const nodeCount = Math.floor(area / 25000); // Divisor increased for less density
+                const maxNodes = window.innerWidth < 768 ? 40 : 70; // Max nodes increased
+                const finalNodeCount = Math.min(nodeCount, maxNodes);
+                
+                for (let i = 0; i < finalNodeCount; i++) {
+                    this.nodes.push({
+                        x: Math.random() * this.canvas.width,
+                        y: Math.random() * this.canvas.height,
+                        vx: (Math.random() - 0.5) * 0.7, // Slightly slower base speed
+                        vy: (Math.random() - 0.5) * 0.7,
+                        radius: Math.random() * 2.5 + 1.5, // Slightly larger nodes
+                        originalRadius: Math.random() * 2.5 + 1.5,
+                        pulsePhase: Math.random() * Math.PI * 2
                     });
                 }
-            });
-        });
+            }
+            
+            updateTheme(isDark) {
+                this.isDarkMode = isDark;
+            }
+            
+            addEventListeners() {
+                // Debounced resize
+                window.addEventListener('resize', () => {
+                    clearTimeout(this.resizeTimeout);
+                    this.resizeTimeout = setTimeout(() => {
+                        this.setCanvasDimensions();
+                        this.createNodes(); 
+                    }, 300); // Increased debounce time
+                });
+                
+                // Mouse move relative to document, not canvas, because canvas can be very tall
+                document.addEventListener('mousemove', (e) => {
+                    this.mouse.x = e.pageX; // Use pageX/Y for coordinates relative to the whole document
+                    this.mouse.y = e.pageY;
+                });
+                
+                document.addEventListener('mouseleave', () => { // this might not fire if mouse leaves window
+                    this.mouse.x = null;
+                    this.mouse.y = null;
+                });
+                 // Handle mouse leaving the window specifically
+                window.addEventListener('mouseout', (e) => {
+                    if (!e.relatedTarget && !e.toElement) { // Check if mouse left the window
+                        this.mouse.x = null;
+                        this.mouse.y = null;
+                    }
+                });
 
-        // Dark Mode Toggle
-        const themeToggleBtn = document.getElementById('theme-toggle');
-        const sunIcon = document.getElementById('sun-icon');
-        const moonIcon = document.getElementById('moon-icon');
-        const htmlElement = document.documentElement; // The <html> tag
-        const starsContainer = document.getElementById('stars-container');
+                
+                // Touch support - also relative to document
+                document.addEventListener('touchmove', (e) => {
+                    if (e.touches.length > 0) {
+                        this.mouse.x = e.touches[0].pageX;
+                        this.mouse.y = e.touches[0].pageY;
+                        // e.preventDefault(); // Be careful with this on document, might prevent scrolling.
+                                          // Only prevent if touch is ON the canvas and interaction is desired.
+                                          // Since canvas is background, probably don't preventDefault.
+                    }
+                }, { passive: true }); // passive:true if not preventing default
+                
+                document.addEventListener('touchend', () => {
+                    this.mouse.x = null;
+                    this.mouse.y = null;
+                });
+            }
+            
+            animate() {
+                this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+                
+                // Determine visible area for optimization (optional, but good for large canvas)
+                const visibleTop = window.pageYOffset;
+                const visibleBottom = visibleTop + window.innerHeight;
 
-        // Function to create and append stars
-        function createStars(numStars) {
-            starsContainer.innerHTML = ''; // Clear existing stars
-            for (let i = 0; i < numStars; i++) {
-                const star = document.createElement('span');
-                const size = Math.random() * 2 + 1; // 1px to 3px
-                star.style.width = `${size}px`;
-                star.style.height = `${size}px`;
-                star.style.left = `${Math.random() * 100}%`;
-                star.style.top = `${Math.random() * 100}%`;
-                star.style.animationDelay = `${Math.random() * 5}s`; // Random delay for twinkling
-                star.style.animationDuration = `${Math.random() * 3 + 2}s`; // Random duration for twinkling
-                starsContainer.appendChild(star);
+                this.nodes.forEach((node, i) => {
+                    node.x += node.vx;
+                    node.y += node.vy;
+                    
+                    if (node.x - node.radius < 0 || node.x + node.radius > this.canvas.width) node.vx *= -1;
+                    if (node.y - node.radius < 0 || node.y + node.radius > this.canvas.height) node.vy *= -1;
+                    
+                    node.x = Math.max(node.radius, Math.min(this.canvas.width - node.radius, node.x));
+                    node.y = Math.max(node.radius, Math.min(this.canvas.height - node.radius, node.y));
+                    
+                    node.pulsePhase += 0.025; // Slightly faster pulse
+                    node.radius = node.originalRadius + Math.sin(node.pulsePhase) * 0.6;
+                    
+                    if (this.mouse.x !== null && this.mouse.y !== null) {
+                        const dx = this.mouse.x - node.x;
+                        const dy = this.mouse.y - node.y;
+                        const distance = Math.sqrt(dx * dx + dy * dy);
+                        
+                        if (distance < this.mouse.radius) {
+                            const forceDirectionX = dx / distance;
+                            const forceDirectionY = dy / distance;
+                            const forceMagnitude = (this.mouse.radius - distance) / this.mouse.radius;
+                            const pushForce = forceMagnitude * 0.6; 
+
+                            node.vx -= forceDirectionX * pushForce;
+                            node.vy -= forceDirectionY * pushForce;
+                        }
+                    }
+                    
+                    node.vx *= 0.985; // Slightly less dampening
+                    node.vy *= 0.985;
+                    
+                    const maxVelocity = 1.8; // Slightly higher max velocity
+                    const currentSpeed = Math.sqrt(node.vx * node.vx + node.vy * node.vy);
+                    if (currentSpeed > maxVelocity) {
+                        node.vx = (node.vx / currentSpeed) * maxVelocity;
+                        node.vy = (node.vy / currentSpeed) * maxVelocity;
+                    }
+
+                    // Only draw connections for nodes within or near visible area (simple optimization)
+                    // This check can be more sophisticated
+                    const checkBuffer = 200; // Pixels outside viewport to still consider for connections
+                    if (node.y + node.radius > visibleTop - checkBuffer && node.y - node.radius < visibleBottom + checkBuffer) {
+                        for (let j = i + 1; j < this.nodes.length; j++) {
+                            const other = this.nodes[j];
+                             if (other.y + other.radius > visibleTop - checkBuffer && other.y - other.radius < visibleBottom + checkBuffer) {
+                                const dx = other.x - node.x;
+                                const dy = other.y - node.y;
+                                const distance = Math.sqrt(dx * dx + dy * dy);
+                                
+                                if (distance < 150) { // Increased connection distance
+                                    const opacity = (1 - distance / 150) * 0.8; // Adjusted opacity calc
+                                    this.ctx.beginPath();
+                                    this.ctx.strokeStyle = this.isDarkMode 
+                                        ? `rgba(239, 87, 36, ${opacity * 0.6})` // Accent RGB with opacity
+                                        : `rgba(239, 87, 36, ${opacity * 0.45})`;
+                                    this.ctx.lineWidth = 1.2; // Slightly thicker lines
+                                    this.ctx.moveTo(node.x, node.y);
+                                    this.ctx.lineTo(other.x, other.y);
+                                    this.ctx.stroke();
+                                }
+                            }
+                        }
+                    }
+                    
+                    // Draw node (always draw all nodes, or also optimize this)
+                    this.ctx.beginPath();
+                    this.ctx.arc(node.x, node.y, node.radius, 0, Math.PI * 2);
+                    this.ctx.fillStyle = this.isDarkMode 
+                        ? 'rgba(239, 87, 36, 0.8)' // Accent RGB
+                        : 'rgba(239, 87, 36, 0.65)';
+                    this.ctx.fill();
+                });
+                
+                this.animationId = requestAnimationFrame(() => this.animate());
+            }
+            
+            destroy() {
+                if (this.animationId) {
+                    cancelAnimationFrame(this.animationId);
+                    this.animationId = null;
+                }
+                // Potentially remove event listeners if necessary for cleanup
+                // window.removeEventListener('resize', ...);
+                // document.removeEventListener('mousemove', ...); etc.
             }
         }
 
-        // Function to set the theme
-        function setTheme(theme) {
-            if (theme === 'dark') {
-                htmlElement.setAttribute('data-theme', 'dark');
-                sunIcon.classList.add('hidden');
-                moonIcon.classList.remove('hidden');
-            } else {
-                htmlElement.removeAttribute('data-theme');
-                sunIcon.classList.remove('hidden');
-                moonIcon.classList.add('hidden');
+        // Theme Management & Initialization
+        (function() {
+            const themeToggle = document.getElementById('theme-toggle');
+            const sunIcon = document.getElementById('sun-icon');
+            const moonIcon = document.getElementById('moon-icon');
+            const htmlElement = document.documentElement;
+            
+            let networkAnimInstance = null;
+            
+            function initializeNetworkAnimation() {
+                if (document.getElementById('network-canvas') && !networkAnimInstance) {
+                    networkAnimInstance = new NetworkAnimation('network-canvas');
+                    // Initial theme update for animation after instance creation
+                    if (networkAnimInstance && htmlElement.getAttribute('data-theme') === 'dark') {
+                         networkAnimInstance.updateTheme(true);
+                    } else if (networkAnimInstance) {
+                         networkAnimInstance.updateTheme(false);
+                    }
+                }
             }
-            localStorage.setItem('theme', theme); // Save preference
-        }
 
-        // Check for saved theme preference or system preference on load
-        document.addEventListener('DOMContentLoaded', () => {
-            const savedTheme = localStorage.getItem('theme');
+
+            function setTheme(theme) {
+                htmlElement.setAttribute('data-theme', theme);
+                if (theme === 'dark') {
+                    sunIcon.classList.add('hidden');
+                    moonIcon.classList.remove('hidden');
+                    themeToggle.setAttribute('aria-pressed', 'true');
+                    if (networkAnimInstance) networkAnimInstance.updateTheme(true);
+                } else {
+                    sunIcon.classList.remove('hidden');
+                    moonIcon.classList.add('hidden');
+                    themeToggle.setAttribute('aria-pressed', 'false');
+                    if (networkAnimInstance) networkAnimInstance.updateTheme(false);
+                }
+                
+                try {
+                    localStorage.setItem('theme', theme);
+                } catch (e) {
+                    console.warn("Could not save theme to localStorage:", e);
+                }
+            }
+
+            let savedTheme;
+            try {
+                savedTheme = localStorage.getItem('theme');
+            } catch (e) { savedTheme = null; }
+            
             const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            const initialTheme = savedTheme || (prefersDark ? 'dark' : 'light');
+            setTheme(initialTheme); // Set theme before initializing animation that might depend on it
 
-            if (savedTheme) {
-                setTheme(savedTheme);
-            } else if (prefersDark) {
-                setTheme('dark');
-            } else {
-                setTheme('light');
-            }
-            createStars(150); // Create stars after theme is set for initial color
-        });
+            // Initialize animation after DOM is ready and theme is set
+            // Using DOMContentLoaded to ensure all elements are available
+            document.addEventListener('DOMContentLoaded', () => {
+                initializeNetworkAnimation();
 
-        // Toggle theme on button click
-        themeToggleBtn.addEventListener('click', () => {
-            const currentTheme = htmlElement.getAttribute('data-theme');
-            if (currentTheme === 'dark') {
-                setTheme('light');
-            } else {
-                setTheme('dark');
-            }
-        });
+                 // Smooth scrolling for navigation links
+                document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                    anchor.addEventListener('click', function (e) {
+                        e.preventDefault();
+                        const targetId = this.getAttribute('href');
+                        try {
+                            const targetElement = document.querySelector(targetId);
+                            if (targetElement) {
+                                // Calculate offset for sticky header
+                                const headerOffset = document.querySelector('header')?.offsetHeight || 0;
+                                const elementPosition = targetElement.getBoundingClientRect().top;
+                                const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+                                window.scrollTo({
+                                    top: offsetPosition,
+                                    behavior: 'smooth'
+                                });
+                            }
+                        } catch (error) {
+                            console.error("Error finding element for smooth scroll:", targetId, error);
+                            // Fallback for browsers not supporting smooth scroll options or if element not found
+                            // window.location.hash = targetId; 
+                        }
+                    });
+                });
+            });
+
+
+            themeToggle.addEventListener('click', () => {
+                const currentTheme = htmlElement.getAttribute('data-theme');
+                setTheme(currentTheme === 'dark' ? 'light' : 'dark');
+            });
+            
+            window.matchMedia('(prefers-reduced-motion: reduce)').addEventListener('change', (e) => {
+                if (e.matches) {
+                    if (networkAnimInstance) {
+                        networkAnimInstance.destroy();
+                        networkAnimInstance = null; // Allow re-initialization if preference changes back
+                    }
+                     document.getElementById('network-canvas').style.display = 'none';
+                } else {
+                    document.getElementById('network-canvas').style.display = 'block';
+                    if (!networkAnimInstance) { // Only re-initialize if it was destroyed
+                        initializeNetworkAnimation(); // Re-initialize
+                    }
+                }
+            });
+
+            // Ensure canvas dimensions are updated after all content (like images) has loaded
+            window.addEventListener('load', () => {
+                if (networkAnimInstance && typeof networkAnimInstance.setCanvasDimensions === 'function') {
+                    networkAnimInstance.setCanvasDimensions();
+                    networkAnimInstance.createNodes(); // Re-create nodes with correct dimensions
+                }
+            });
+        })();
     </script>
-
 </body>
 </html>
