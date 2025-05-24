@@ -14,8 +14,8 @@
     <meta property="og:type" content="website">
     <meta name="twitter:card" content="summary_large_image">
 
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700;900&display=swap" as="style">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&display=swap" as="style">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
@@ -41,77 +41,96 @@
     <style>
         :root {
             /* Orange Palette */
-            --orange-100: #FFF3ED;
-            --orange-200: #FFE1D1;
-            --orange-300: #FFBFA0;
-            --orange-400: #FF9770;
-            --orange-500: #F57342;
-            --orange-600: #E85521;
-            --orange-700: #C94218;
-            --orange-800: #A13616;
-            --orange-900: #7A2A12;
+            --orange-50: #FFF7ED;
+            --orange-100: #FFEDD5;
+            --orange-200: #FED7AA;
+            --orange-300: #FDBA74;
+            --orange-400: #FB923C;
+            --orange-500: #F97316;
+            --orange-600: #EA580C;
+            --orange-700: #C2410C;
+            --orange-800: #9A3412;
+            --orange-900: #7C2D12;
+            --orange-950: #431407;
 
-            /* Typography */
+            /* Typography - Responsive Scaling */
             --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            
+            /* Responsive Type Scale */
+            --text-xs: clamp(0.75rem, 0.7rem + 0.25vw, 0.875rem);
+            --text-sm: clamp(0.875rem, 0.8rem + 0.38vw, 1rem);
+            --text-base: clamp(1rem, 0.9rem + 0.5vw, 1.125rem);
+            --text-lg: clamp(1.125rem, 1rem + 0.63vw, 1.25rem);
+            --text-xl: clamp(1.25rem, 1.1rem + 0.75vw, 1.5rem);
+            --text-2xl: clamp(1.5rem, 1.25rem + 1.25vw, 2rem);
+            --text-3xl: clamp(2rem, 1.5rem + 2.5vw, 3rem);
+            --text-4xl: clamp(2.5rem, 1.75rem + 3.75vw, 4rem);
+            --text-5xl: clamp(3rem, 2rem + 5vw, 5rem);
 
             /* Spacing Scale */
-            --space-xs: 0.5rem;
-            --space-sm: 1rem;
-            --space-md: 2rem;
-            --space-lg: 3rem;
-            --space-xl: 4rem;
-            --space-2xl: 6rem;
-            --space-3xl: 8rem;
+            --space-xs: clamp(0.25rem, 0.2rem + 0.25vw, 0.5rem);
+            --space-sm: clamp(0.5rem, 0.4rem + 0.5vw, 1rem);
+            --space-md: clamp(1rem, 0.8rem + 1vw, 2rem);
+            --space-lg: clamp(1.5rem, 1.2rem + 1.5vw, 3rem);
+            --space-xl: clamp(2rem, 1.5rem + 2.5vw, 4rem);
+            --space-2xl: clamp(3rem, 2rem + 5vw, 6rem);
+            --space-3xl: clamp(4rem, 3rem + 5vw, 8rem);
 
             /* Animation Timing */
             --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
             --ease-in-out-expo: cubic-bezier(0.87, 0, 0.13, 1);
 
             /* Uniform Card Properties */
-            --card-radius: 20px;
-            --card-padding: 1.5rem;
-            --card-shadow: 0 4px 20px -5px rgba(0, 0, 0, 0.1);
-            --card-shadow-hover: 0 8px 30px -5px rgba(0, 0, 0, 0.15);
+            --card-radius: 24px;
+            --card-padding: clamp(1.5rem, 1.25rem + 1.25vw, 2rem);
+            --card-gap: clamp(1rem, 0.8rem + 1vw, 1.5rem);
+            --card-shadow: 0 1px 3px rgba(0, 0, 0, 0.04), 0 1px 2px rgba(0, 0, 0, 0.06);
+            --card-shadow-hover: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -2px rgba(0, 0, 0, 0.04);
             --card-border-width: 1px;
-            --card-bg-gradient: linear-gradient(135deg, var(--color-bg-card) 0%, var(--color-bg-card-secondary) 100%);
+            
+            /* Layout */
+            --header-height: 4rem;
+            --container-max: 1280px;
+            --content-max: 1000px;
+            --text-max: 65ch;
         }
 
         /* Light Theme (Default) */
         :root {
-            --color-bg-primary: #FAFAFA;
-            --color-bg-secondary: #F5F5F5;
+            --color-bg-primary: #FFFFFF;
+            --color-bg-secondary: #F9FAFB;
+            --color-bg-tertiary: #F3F4F6;
             --color-bg-card: #FFFFFF;
-            --color-bg-card-secondary: #FAFAFA;
-            --color-text-primary: #171717;
-            --color-text-secondary: #525252;
-            --color-border: rgba(0, 0, 0, 0.06);
-            --color-header-bg: rgba(250, 250, 250, 0.85);
-            --color-header-text: #171717;
-            --color-nav-hover: rgba(0, 0, 0, 0.03);
+            --color-text-primary: #111827;
+            --color-text-secondary: #6B7280;
+            --color-text-tertiary: #9CA3AF;
+            --color-border: rgba(0, 0, 0, 0.05);
+            --color-border-hover: rgba(0, 0, 0, 0.1);
+            --color-header-bg: rgba(255, 255, 255, 0.9);
             --theme-icon-sun: block;
             --theme-icon-moon: none;
-            --network-node-color: 245, 115, 66;
-            --network-opacity: 0.4;
+            --network-line-color: rgba(249, 115, 22, 0.15);
+            --network-node-color: rgba(249, 115, 22, 0.2);
         }
 
         /* Dark Theme */
         [data-theme="dark"] {
-            --color-bg-primary: #0A0A0A;
-            --color-bg-secondary: #171717;
-            --color-bg-card: #1F1F1F;
-            --color-bg-card-secondary: #252525;
-            --color-text-primary: #FAFAFA;
-            --color-text-secondary: #A3A3A3;
-            --color-border: rgba(255, 255, 255, 0.08);
-            --color-header-bg: rgba(10, 10, 10, 0.85);
-            --color-header-text: #FAFAFA;
-            --color-nav-hover: rgba(255, 255, 255, 0.03);
+            --color-bg-primary: #0F172A;
+            --color-bg-secondary: #1E293B;
+            --color-bg-tertiary: #334155;
+            --color-bg-card: #1E293B;
+            --color-text-primary: #F1F5F9;
+            --color-text-secondary: #CBD5E1;
+            --color-text-tertiary: #94A3B8;
+            --color-border: rgba(255, 255, 255, 0.06);
+            --color-border-hover: rgba(255, 255, 255, 0.1);
+            --color-header-bg: rgba(15, 23, 42, 0.9);
             --theme-icon-sun: none;
             --theme-icon-moon: block;
-            --network-node-color: 255, 151, 112;
-            --network-opacity: 0.6;
-            --card-shadow: 0 4px 20px -5px rgba(0, 0, 0, 0.3);
-            --card-shadow-hover: 0 8px 30px -5px rgba(0, 0, 0, 0.5);
+            --network-line-color: rgba(251, 146, 60, 0.2);
+            --network-node-color: rgba(251, 146, 60, 0.3);
+            --card-shadow: 0 1px 3px rgba(0, 0, 0, 0.2), 0 1px 2px rgba(0, 0, 0, 0.3);
+            --card-shadow-hover: 0 10px 15px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -2px rgba(0, 0, 0, 0.2);
         }
 
         /* Reset and Base */
@@ -127,7 +146,7 @@
 
         body {
             font-family: var(--font-primary);
-            font-size: 16px;
+            font-size: var(--text-base);
             line-height: 1.6;
             color: var(--color-text-primary);
             background-color: var(--color-bg-primary);
@@ -137,7 +156,7 @@
             transition: background-color 0.3s var(--ease-out-expo), color 0.3s var(--ease-out-expo);
         }
 
-        /* Enhanced Network Animation Canvas */
+        /* Flat Network Animation Canvas */
         #network-canvas {
             position: fixed;
             top: 0;
@@ -145,9 +164,7 @@
             width: 100%;
             height: 100vh;
             z-index: 0;
-            opacity: var(--network-opacity);
             pointer-events: none;
-            transition: opacity 0.3s ease;
         }
 
         /* Skip Link */
@@ -157,10 +174,11 @@
             left: var(--space-md);
             background: var(--orange-600);
             color: white;
-            padding: var(--space-xs) var(--space-sm);
+            padding: var(--space-sm) var(--space-md);
             text-decoration: none;
-            border-radius: 4px;
+            border-radius: 8px;
             z-index: 1000;
+            font-size: var(--text-sm);
             transition: top 0.3s var(--ease-out-expo);
         }
 
@@ -174,9 +192,10 @@
             top: 0;
             left: 0;
             right: 0;
+            height: var(--header-height);
             background: var(--color-header-bg);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
             z-index: 900;
             transition: all 0.3s var(--ease-out-expo);
             border-bottom: 1px solid var(--color-border);
@@ -187,35 +206,37 @@
         }
 
         .header-container {
-            max-width: 1400px;
+            max-width: var(--container-max);
+            height: 100%;
             margin: 0 auto;
-            padding: var(--space-sm) var(--space-md);
+            padding: 0 var(--space-md);
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
 
-        /* Logo */
-        .logo-wrapper {
-            background: var(--card-bg-gradient);
+        /* Logo Card */
+        .logo-card {
+            background: var(--color-bg-card);
             padding: var(--space-xs) var(--space-sm);
-            border-radius: var(--card-radius);
-            transition: all 0.3s var(--ease-out-expo);
-            box-shadow: var(--card-shadow);
+            border-radius: 16px;
             border: var(--card-border-width) solid var(--color-border);
+            box-shadow: var(--card-shadow);
+            transition: all 0.3s var(--ease-out-expo);
         }
 
-        .logo-wrapper:hover {
+        .logo-card:hover {
             transform: translateY(-2px);
             box-shadow: var(--card-shadow-hover);
+            border-color: var(--color-border-hover);
         }
 
         .company-logo {
-            height: 2.5rem;
+            height: 2rem;
             display: block;
         }
 
-        /* Navigation - Uniform Card Style */
+        /* Navigation */
         nav ul {
             list-style: none;
             display: flex;
@@ -223,63 +244,64 @@
             align-items: center;
         }
 
-        nav a,
+        .nav-item,
         .theme-toggle {
-            background: var(--card-bg-gradient);
+            background: var(--color-bg-card);
             border: var(--card-border-width) solid var(--color-border);
-            padding: 0.75rem 1.25rem;
-            border-radius: var(--card-radius);
-            transition: all 0.3s var(--ease-out-expo);
+            border-radius: 16px;
             box-shadow: var(--card-shadow);
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            transition: all 0.3s var(--ease-out-expo);
             position: relative;
             overflow: hidden;
         }
 
-        nav a {
-            color: var(--color-header-text);
+        .nav-item {
+            padding: 0.625rem 1.25rem;
+        }
+
+        .nav-item a {
+            color: var(--color-text-primary);
             text-decoration: none;
             font-weight: 500;
-            font-size: 0.95rem;
+            font-size: var(--text-sm);
+            display: block;
         }
 
-        nav a::before,
-        .theme-toggle::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 3px;
-            background: linear-gradient(90deg, var(--orange-400), var(--orange-600));
-            transform: scaleX(0);
-            transform-origin: left;
-            transition: transform 0.3s var(--ease-out-expo);
-        }
-
-        nav a:hover,
+        .nav-item:hover,
         .theme-toggle:hover {
             transform: translateY(-2px);
             box-shadow: var(--card-shadow-hover);
+            border-color: var(--color-border-hover);
         }
 
-        nav a:hover::before,
-        .theme-toggle:hover::before {
+        .nav-item::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: var(--orange-500);
+            transform: scaleX(0);
+            transform-origin: center;
+            transition: transform 0.3s var(--ease-out-expo);
+        }
+
+        .nav-item:hover::after {
             transform: scaleX(1);
         }
 
         /* Theme Toggle */
         .theme-toggle {
             cursor: pointer;
-            color: var(--color-header-text);
-            padding: 0.75rem;
+            color: var(--color-text-primary);
+            padding: 0.625rem;
+            aspect-ratio: 1;
         }
 
         .theme-toggle svg {
-            width: 1.25rem;
-            height: 1.25rem;
+            width: 1.125rem;
+            height: 1.125rem;
             display: block;
         }
 
@@ -293,96 +315,97 @@
 
         /* Main content */
         main {
-            padding-top: 80px;
+            padding-top: var(--header-height);
             position: relative;
             z-index: 1;
         }
 
         /* Sections */
         section {
-            padding: var(--space-3xl) 0;
+            padding: var(--space-2xl) 0;
             position: relative;
-            overflow: hidden;
         }
 
         .container {
-            max-width: 1200px;
+            max-width: var(--container-max);
             margin: 0 auto;
             padding: 0 var(--space-md);
         }
 
-        /* Content Width Control */
         .content-wrapper {
-            max-width: 1000px;
+            max-width: var(--content-max);
             margin: 0 auto;
         }
 
         .text-content {
-            max-width: 65ch;
+            max-width: var(--text-max);
             margin-left: auto;
             margin-right: auto;
         }
 
         /* Hero Section */
         .hero {
-            min-height: calc(100vh - 80px);
+            min-height: calc(100vh - var(--header-height));
             display: flex;
             align-items: center;
-            background: linear-gradient(135deg, rgba(245, 115, 66, 0.05) 0%, transparent 100%);
-            position: relative;
+            padding: var(--space-2xl) 0;
         }
 
-        [data-theme="dark"] .hero {
-            background: linear-gradient(135deg, rgba(245, 115, 66, 0.03) 0%, transparent 100%);
-        }
-
-        /* Typography */
-        h1 {
-            font-size: clamp(2.5rem, 7vw, 5rem);
-            font-weight: 900;
-            line-height: 1.1;
-            letter-spacing: -0.03em;
-            margin-bottom: var(--space-md);
+        .hero-content {
+            background: var(--color-bg-card);
+            border: var(--card-border-width) solid var(--color-border);
+            border-radius: var(--card-radius);
+            box-shadow: var(--card-shadow);
+            padding: var(--space-2xl);
+            max-width: 800px;
             opacity: 0;
             transform: translateY(30px);
             animation: fadeInUp 1s 0.3s forwards var(--ease-out-expo);
         }
 
+        /* Typography */
+        h1 {
+            font-size: var(--text-5xl);
+            font-weight: 900;
+            line-height: 1.1;
+            letter-spacing: -0.03em;
+            margin-bottom: var(--space-md);
+            color: var(--color-text-primary);
+        }
+
         h2 {
-            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-size: var(--text-4xl);
             font-weight: 800;
             line-height: 1.2;
             letter-spacing: -0.02em;
             margin-bottom: var(--space-lg);
-            opacity: 0;
-            animation: fadeInUp 1s 0.1s forwards var(--ease-out-expo);
+            color: var(--color-text-primary);
         }
 
         h3 {
-            font-size: clamp(1.25rem, 3vw, 1.75rem);
+            font-size: var(--text-2xl);
             font-weight: 700;
             line-height: 1.3;
             margin-bottom: var(--space-sm);
+            color: var(--color-text-primary);
         }
 
         .lead {
-            font-size: clamp(1.125rem, 2.5vw, 1.5rem);
-            font-weight: 300;
-            line-height: 1.5;
+            font-size: var(--text-xl);
+            font-weight: 400;
+            line-height: 1.6;
             color: var(--color-text-secondary);
             margin-bottom: var(--space-lg);
-            opacity: 0;
-            transform: translateY(30px);
-            animation: fadeInUp 1s 0.5s forwards var(--ease-out-expo);
         }
 
         p {
-            font-size: 1.125rem;
-            line-height: 1.8;
+            font-size: var(--text-base);
+            line-height: 1.75;
             color: var(--color-text-secondary);
             margin-bottom: var(--space-sm);
         }
 
+        /* Animations */
         @keyframes fadeInUp {
             to {
                 opacity: 1;
@@ -405,46 +428,30 @@
         .button {
             display: inline-flex;
             align-items: center;
-            gap: var(--space-xs);
-            background: var(--orange-600);
+            gap: var(--space-sm);
+            background: var(--orange-500);
             color: white;
             font-weight: 600;
-            font-size: 1.125rem;
+            font-size: var(--text-base);
             padding: var(--space-sm) var(--space-lg);
             border: none;
-            border-radius: 100px;
+            border-radius: 12px;
             text-decoration: none;
             transition: all 0.3s var(--ease-out-expo);
             position: relative;
             overflow: hidden;
             cursor: pointer;
-            opacity: 0;
-            transform: translateY(30px);
-            animation: fadeInUp 1s 0.7s forwards var(--ease-out-expo);
-        }
-
-        .button::before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 0;
-            height: 0;
-            background: rgba(255, 255, 255, 0.2);
-            border-radius: 50%;
-            transform: translate(-50%, -50%);
-            transition: width 0.6s, height 0.6s;
-        }
-
-        .button:hover::before {
-            width: 300px;
-            height: 300px;
+            box-shadow: 0 4px 6px -1px rgba(249, 115, 22, 0.1), 0 2px 4px -1px rgba(249, 115, 22, 0.06);
         }
 
         .button:hover {
-            background: var(--orange-700);
-            transform: translateY(-3px);
-            box-shadow: 0 20px 40px -15px rgba(232, 85, 33, 0.4);
+            background: var(--orange-600);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(249, 115, 22, 0.1), 0 4px 6px -2px rgba(249, 115, 22, 0.05);
+        }
+
+        .button:active {
+            transform: translateY(0);
         }
 
         .button i {
@@ -452,115 +459,99 @@
         }
 
         .button:hover i {
-            transform: translateX(5px);
+            transform: translateX(4px);
         }
 
         /* Uniform Cards */
         .card {
-            background: var(--card-bg-gradient);
+            background: var(--color-bg-card);
             border-radius: var(--card-radius);
-            padding: var(--space-xl);
+            padding: var(--card-padding);
             box-shadow: var(--card-shadow);
-            transition: all 0.4s var(--ease-out-expo);
+            border: var(--card-border-width) solid var(--color-border);
+            transition: all 0.3s var(--ease-out-expo);
             position: relative;
             overflow: hidden;
-            border: var(--card-border-width) solid var(--color-border);
-        }
-
-        .card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: linear-gradient(90deg, var(--orange-400), var(--orange-600));
-            transform: scaleX(0);
-            transform-origin: left;
-            transition: transform 0.4s var(--ease-out-expo);
         }
 
         .card:hover {
-            transform: translateY(-10px);
+            transform: translateY(-4px);
             box-shadow: var(--card-shadow-hover);
+            border-color: var(--color-border-hover);
         }
 
-        .card:hover::before {
-            transform: scaleX(1);
+        .card-header {
+            display: flex;
+            align-items: center;
+            gap: var(--space-sm);
+            margin-bottom: var(--space-md);
+        }
+
+        /* About Section Card */
+        .about-card {
+            background: var(--color-bg-card);
+            border: var(--card-border-width) solid var(--color-border);
+            border-radius: var(--card-radius);
+            padding: var(--space-2xl);
+            box-shadow: var(--card-shadow);
+            margin-top: var(--space-lg);
         }
 
         /* Service Grid */
         .service-grid {
             display: grid;
-            gap: var(--space-lg);
-            grid-template-columns: repeat(auto-fit, minmax(min(100%, 400px), 1fr));
-            margin-top: var(--space-2xl);
+            gap: var(--card-gap);
+            grid-template-columns: repeat(auto-fit, minmax(min(100%, 350px), 1fr));
+            margin-top: var(--space-lg);
         }
 
-        /* Feature Grid - Uniform Card Style */
+        /* Feature Grid */
         .feature-grid {
             display: grid;
-            gap: var(--space-md);
+            gap: var(--card-gap);
             grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
-            margin-top: var(--space-2xl);
+            margin-top: var(--space-lg);
         }
 
-        .feature-item {
-            background: var(--card-bg-gradient);
+        .feature-card {
+            background: var(--color-bg-card);
             border-radius: var(--card-radius);
             padding: var(--card-padding);
             box-shadow: var(--card-shadow);
             border: var(--card-border-width) solid var(--color-border);
             text-align: center;
             transition: all 0.3s var(--ease-out-expo);
-            position: relative;
-            overflow: hidden;
         }
 
-        .feature-item::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 3px;
-            background: linear-gradient(90deg, var(--orange-400), var(--orange-600));
-            transform: scaleX(0);
-            transform-origin: center;
-            transition: transform 0.3s var(--ease-out-expo);
-        }
-
-        .feature-item:hover {
-            transform: translateY(-5px);
+        .feature-card:hover {
+            transform: translateY(-4px);
             box-shadow: var(--card-shadow-hover);
+            border-color: var(--color-border-hover);
         }
 
-        .feature-item:hover::before {
-            transform: scaleX(1);
-        }
-
-        .icon-feature {
+        .icon-wrapper {
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            width: 80px;
-            height: 80px;
-            font-size: 2rem;
+            width: 4rem;
+            height: 4rem;
+            font-size: 1.75rem;
             background: var(--orange-100);
             color: var(--orange-600);
-            border-radius: 20px;
+            border-radius: 16px;
             margin-bottom: var(--space-md);
             transition: all 0.3s var(--ease-out-expo);
         }
 
-        [data-theme="dark"] .icon-feature {
-            background: rgba(245, 115, 66, 0.1);
+        [data-theme="dark"] .icon-wrapper {
+            background: rgba(249, 115, 22, 0.1);
+            color: var(--orange-400);
         }
 
-        .feature-item:hover .icon-feature {
-            background: var(--orange-600);
+        .feature-card:hover .icon-wrapper {
+            transform: scale(1.1);
+            background: var(--orange-500);
             color: white;
-            transform: rotateY(180deg);
         }
 
         /* Service List */
@@ -573,181 +564,123 @@
             display: flex;
             align-items: flex-start;
             gap: var(--space-sm);
-            margin-bottom: var(--space-md);
-            font-size: 1.125rem;
-            opacity: 0;
-            transform: translateX(-20px);
-            animation: slideIn 0.6s forwards var(--ease-out-expo);
+            margin-bottom: var(--space-sm);
+            padding: var(--space-sm);
+            background: var(--color-bg-secondary);
+            border-radius: 12px;
+            transition: all 0.3s var(--ease-out-expo);
         }
 
-        .service-list li:nth-child(1) { animation-delay: 0.1s; }
-        .service-list li:nth-child(2) { animation-delay: 0.2s; }
-        .service-list li:nth-child(3) { animation-delay: 0.3s; }
-        .service-list li:nth-child(4) { animation-delay: 0.4s; }
-
-        @keyframes slideIn {
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
+        .service-list li:hover {
+            background: var(--color-bg-tertiary);
+            transform: translateX(4px);
         }
 
         .service-list i {
             color: var(--orange-500);
-            margin-top: 0.3rem;
-            transition: transform 0.3s var(--ease-out-expo);
-        }
-
-        .service-list li:hover i {
-            transform: scale(1.2) rotate(360deg);
+            margin-top: 0.125rem;
+            flex-shrink: 0;
         }
 
         /* Section Backgrounds */
-        .section-secondary {
+        .section-alt {
             background: var(--color-bg-secondary);
+        }
+
+        /* Differentiator Grid */
+        .differentiator-grid {
+            display: grid;
+            gap: var(--card-gap);
+            grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr));
+            margin-top: var(--space-lg);
         }
 
         /* Contact Section */
         .contact-section {
-            background: linear-gradient(135deg, var(--orange-500) 0%, var(--orange-700) 100%);
+            background: linear-gradient(135deg, var(--orange-500) 0%, var(--orange-600) 100%);
             color: white;
             text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .contact-section::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
-            animation: rotate 30s linear infinite;
-        }
-
-        @keyframes rotate {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
+            padding: var(--space-3xl) 0;
         }
 
         .contact-section h2,
-        .contact-section p,
-        .contact-section a {
+        .contact-section p {
             color: white;
-            position: relative;
-            z-index: 1;
         }
 
-        .contact-info {
+        .contact-grid {
             display: grid;
-            gap: var(--space-lg);
-            grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr));
-            margin: var(--space-2xl) auto;
+            gap: var(--card-gap);
+            grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
+            margin: var(--space-2xl) auto 0;
             max-width: 900px;
         }
 
-        .contact-item {
+        .contact-card {
             background: rgba(255, 255, 255, 0.1);
             backdrop-filter: blur(10px);
             -webkit-backdrop-filter: blur(10px);
-            padding: var(--space-lg);
-            border-radius: 20px;
+            padding: var(--card-padding);
+            border-radius: var(--card-radius);
             border: 1px solid rgba(255, 255, 255, 0.2);
             transition: all 0.3s var(--ease-out-expo);
         }
 
-        .contact-item:hover {
-            background: rgba(255, 255, 255, 0.2);
-            transform: translateY(-5px);
-            box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.3);
+        .contact-card:hover {
+            background: rgba(255, 255, 255, 0.15);
+            transform: translateY(-4px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
         }
 
-        .contact-item h3 {
+        .contact-card h3 {
+            color: white;
+            font-size: var(--text-lg);
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: var(--space-xs);
+            gap: var(--space-sm);
             margin-bottom: var(--space-sm);
-            color: white;
         }
 
-        .contact-item a {
+        .contact-card a {
+            color: white;
             text-decoration: none;
             font-weight: 500;
-            transition: all 0.3s var(--ease-out-expo);
+            font-size: var(--text-base);
+            transition: opacity 0.3s var(--ease-out-expo);
         }
 
-        .contact-item a:hover {
-            text-decoration: underline;
+        .contact-card a:hover {
             opacity: 0.9;
-        }
-
-        /* Differentiator Section */
-        .differentiator {
-            background: var(--color-bg-secondary);
-        }
-
-        .differentiator-grid {
-            display: grid;
-            gap: var(--space-md);
-            grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
-            margin-top: var(--space-2xl);
-        }
-
-        .differentiator-item {
-            background: var(--card-bg-gradient);
-            padding: var(--card-padding);
-            border-radius: var(--card-radius);
-            box-shadow: var(--card-shadow);
-            border: var(--card-border-width) solid var(--color-border);
-            transition: all 0.3s var(--ease-out-expo);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .differentiator-item::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 3px;
-            background: linear-gradient(90deg, var(--orange-400), var(--orange-600));
-            transform: scaleX(0);
-            transform-origin: left;
-            transition: transform 0.3s var(--ease-out-expo);
-        }
-
-        .differentiator-item:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--card-shadow-hover);
-        }
-
-        .differentiator-item:hover::before {
-            transform: scaleX(1);
-        }
-
-        .differentiator-item h3 {
-            color: var(--orange-600);
-            display: flex;
-            align-items: center;
-            gap: var(--space-xs);
+            text-decoration: underline;
         }
 
         /* Footer */
         footer {
             background: var(--color-bg-secondary);
-            color: var(--color-text-secondary);
             padding: var(--space-xl) 0;
             text-align: center;
             border-top: 1px solid var(--color-border);
         }
 
+        .footer-content {
+            max-width: var(--container-max);
+            margin: 0 auto;
+            padding: 0 var(--space-md);
+        }
+
+        .footer-links {
+            display: flex;
+            gap: var(--space-lg);
+            justify-content: center;
+            margin-top: var(--space-sm);
+            flex-wrap: wrap;
+        }
+
         footer a {
             color: var(--color-text-secondary);
             text-decoration: none;
+            font-size: var(--text-sm);
             transition: color 0.3s var(--ease-out-expo);
         }
 
@@ -755,55 +688,77 @@
             color: var(--orange-500);
         }
 
+        /* Mobile Navigation */
+        .mobile-menu-toggle {
+            display: none;
+            background: var(--color-bg-card);
+            border: var(--card-border-width) solid var(--color-border);
+            border-radius: 12px;
+            padding: 0.5rem;
+            box-shadow: var(--card-shadow);
+            color: var(--color-text-primary);
+            cursor: pointer;
+        }
+
         /* Responsive */
         @media (max-width: 768px) {
-            :root {
-                --space-3xl: 4rem;
-                --space-2xl: 3rem;
-                --space-xl: 2rem;
-                --card-padding: 1rem;
+            .mobile-menu-toggle {
+                display: block;
             }
 
-            .header-container {
-                padding: var(--space-xs) var(--space-sm);
+            nav {
+                position: fixed;
+                top: var(--header-height);
+                left: 0;
+                right: 0;
+                background: var(--color-bg-primary);
+                border-bottom: 1px solid var(--color-border);
+                transform: translateY(-100%);
+                transition: transform 0.3s var(--ease-out-expo);
+                box-shadow: var(--card-shadow);
+            }
+
+            nav.active {
+                transform: translateY(0);
             }
 
             nav ul {
-                gap: 0.25rem;
+                flex-direction: column;
+                padding: var(--space-md);
+                gap: var(--space-sm);
             }
 
-            nav a {
-                font-size: 0.875rem;
-                padding: 0.5rem 0.75rem;
+            .nav-item {
+                width: 100%;
+                text-align: center;
             }
 
             .theme-toggle {
-                padding: 0.5rem;
+                width: auto;
             }
 
-            .hero {
-                min-height: calc(100vh - 60px);
-            }
-
-            main {
-                padding-top: 60px;
-            }
-
-            .container {
-                padding: 0 var(--space-sm);
-            }
-
-            .button {
-                font-size: 1rem;
-                padding: 0.75rem 2rem;
-            }
-
-            .card {
+            .hero-content {
                 padding: var(--space-lg);
             }
 
+            .about-card {
+                padding: var(--space-lg);
+            }
+
+            .service-grid,
+            .feature-grid,
+            .differentiator-grid,
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
             .company-logo {
-                height: 2rem;
+                height: 1.75rem;
+            }
+
+            .footer-links {
+                flex-direction: column;
+                gap: var(--space-sm);
             }
         }
 
@@ -834,6 +789,7 @@
         .text-center { text-align: center; }
         .mx-auto { margin-left: auto; margin-right: auto; }
         .hidden { display: none !important; }
+        .text-strong { font-weight: 600; color: var(--color-text-primary); }
     </style>
 </head>
 <body>
@@ -843,17 +799,24 @@
 
     <header>
         <div class="header-container">
-            <div class="logo-wrapper">
+            <div class="logo-card">
                 <img src="https://raw.githubusercontent.com/itc-in/assets/refs/heads/main/images/logo.svg"
                      alt="Integrated Technology Consultants"
                      class="company-logo">
             </div>
-            <nav aria-label="Main navigation">
+            
+            <button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Toggle navigation">
+                <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                    <path d="M3 12h18M3 6h18M3 18h18"></path>
+                </svg>
+            </button>
+
+            <nav id="navigation" aria-label="Main navigation">
                 <ul>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#services">Services</a></li>
-                    <li><a href="#solutions">Solutions</a></li>
-                    <li><a href="#contact">Contact</a></li>
+                    <li class="nav-item"><a href="#about">About</a></li>
+                    <li class="nav-item"><a href="#services">Services</a></li>
+                    <li class="nav-item"><a href="#solutions">Solutions</a></li>
+                    <li class="nav-item"><a href="#contact">Contact</a></li>
                     <li>
                         <button class="theme-toggle"
                                 id="theme-toggle"
@@ -875,9 +838,9 @@
     <main id="main">
         <section class="hero">
             <div class="container">
-                <div class="content-wrapper">
-                    <h1>Integrated Technology<br>Consultants</h1>
-                    <p class="lead text-content">Expert guidance to help you live more independently with easy-to-use technology.</p>
+                <div class="hero-content">
+                    <h1>Integrated Technology Consultants</h1>
+                    <p class="lead">Expert guidance to help you live more independently with easy-to-use technology.</p>
                     <a href="#contact" class="button">
                         Get Started Today
                         <i class="fas fa-arrow-right"></i>
@@ -889,28 +852,30 @@
         <section id="about" aria-labelledby="about-heading">
             <div class="container">
                 <div class="content-wrapper">
-                    <h2 id="about-heading" class="text-center">Your Technology Partners</h2>
-                    <div class="text-content text-center fade-in">
-                        <p>Located in Huntington, Indiana, Integrated Technology Consultants (ITC) specializes in <strong>helping people of all abilities use technology to live more freely and independently</strong>. We are experts in assessing your needs and recommending smart home devices, remote support tools, and other assistive technologies that fit your unique life.</p>
-                        <p>Our core mission is to simplify daily life and enhance fulfillment by <strong>matching the right technology to your specific requirements and goals</strong>. We don't just install devices; we provide the consultation and guidance needed to ensure you or your clients can confidently use these tools.</p>
+                    <h2 id="about-heading" class="text-center fade-in">Your Technology Partners</h2>
+                    <div class="about-card fade-in">
+                        <div class="text-content">
+                            <p>Located in Huntington, Indiana, Integrated Technology Consultants (ITC) specializes in <span class="text-strong">helping people of all abilities use technology to live more freely and independently</span>. We are experts in assessing your needs and recommending smart home devices, remote support tools, and other assistive technologies that fit your unique life.</p>
+                            <p>Our core mission is to simplify daily life and enhance fulfillment by <span class="text-strong">matching the right technology to your specific requirements and goals</span>. We don't just install devices; we provide the consultation and guidance needed to ensure you or your clients can confidently use these tools.</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="services" class="section-secondary" aria-labelledby="services-heading">
+        <section id="services" class="section-alt" aria-labelledby="services-heading">
             <div class="container">
                 <div class="content-wrapper">
-                    <h2 id="services-heading" class="text-center">Our Consulting Services</h2>
+                    <h2 id="services-heading" class="text-center fade-in">Our Consulting Services</h2>
                     <div class="service-grid">
                         <div class="card fade-in">
-                            <div class="text-center">
-                                <div class="icon-feature">
+                            <div class="card-header">
+                                <div class="icon-wrapper">
                                     <i class="fas fa-hands-helping"></i>
                                 </div>
+                                <h3>Assistive Technology Consulting</h3>
                             </div>
-                            <h3>Assistive Technology Consulting</h3>
-                            <p>We provide <strong>expert advice, selection, and setup assistance</strong> for technology that empowers individuals, especially those with Intellectual and Developmental Disabilities (IDD).</p>
+                            <p>We provide <span class="text-strong">expert advice, selection, and setup assistance</span> for technology that empowers individuals, especially those with Intellectual and Developmental Disabilities (IDD).</p>
                             <ul class="service-list">
                                 <li><i class="fas fa-home"></i>Voice-controlled smart home systems</li>
                                 <li><i class="fas fa-video"></i>Safety and remote support systems</li>
@@ -919,12 +884,12 @@
                             </ul>
                         </div>
                         <div class="card fade-in">
-                            <div class="text-center">
-                                <div class="icon-feature">
+                            <div class="card-header">
+                                <div class="icon-wrapper">
                                     <i class="fas fa-cogs"></i>
                                 </div>
+                                <h3>IT Infrastructure Consulting</h3>
                             </div>
-                            <h3>IT Infrastructure Consulting</h3>
                             <p>Comprehensive IT consulting for organizations, ensuring robust and reliable technology foundations.</p>
                             <ul class="service-list">
                                 <li><i class="fas fa-wifi"></i>Network design and implementation</li>
@@ -941,46 +906,46 @@
         <section id="solutions" aria-labelledby="solutions-heading">
             <div class="container">
                 <div class="content-wrapper">
-                    <h2 id="solutions-heading" class="text-center">Technology Solutions</h2>
-                    <p class="text-center text-content lead">We help you navigate, select, and implement a wide range of technologies designed for independence.</p>
+                    <h2 id="solutions-heading" class="text-center fade-in">Technology Solutions</h2>
+                    <p class="text-center text-content lead fade-in">We help you navigate, select, and implement a wide range of technologies designed for independence.</p>
                     <div class="feature-grid">
-                        <div class="feature-item fade-in">
-                            <div class="icon-feature">
+                        <div class="feature-card fade-in">
+                            <div class="icon-wrapper">
                                 <i class="fas fa-home"></i>
                             </div>
                             <h3>Smart Home Setup</h3>
                             <p>Voice-controlled home systems for easier, more independent living.</p>
                         </div>
-                        <div class="feature-item fade-in">
-                            <div class="icon-feature">
+                        <div class="feature-card fade-in">
+                            <div class="icon-wrapper">
                                 <i class="fas fa-video"></i>
                             </div>
                             <h3>Remote Support Systems</h3>
                             <p>Secure cameras and sensors to enable remote support with privacy.</p>
                         </div>
-                        <div class="feature-item fade-in">
-                            <div class="icon-feature">
+                        <div class="feature-card fade-in">
+                            <div class="icon-wrapper">
                                 <i class="fas fa-door-open"></i>
                             </div>
                             <h3>Smart Entry Solutions</h3>
                             <p>Secure, key-free access solutions for your home or facility.</p>
                         </div>
-                        <div class="feature-item fade-in">
-                            <div class="icon-feature">
+                        <div class="feature-card fade-in">
+                            <div class="icon-wrapper">
                                 <i class="fas fa-lightbulb"></i>
                             </div>
                             <h3>Automated Lighting</h3>
                             <p>Lights that activate when needed, enhancing safety and efficiency.</p>
                         </div>
-                        <div class="feature-item fade-in">
-                            <div class="icon-feature">
+                        <div class="feature-card fade-in">
+                            <div class="icon-wrapper">
                                 <i class="fas fa-bell"></i>
                             </div>
                             <h3>Custom Alerts</h3>
                             <p>Systems to send important updates to designated caregivers.</p>
                         </div>
-                        <div class="feature-item fade-in">
-                            <div class="icon-feature">
+                        <div class="feature-card fade-in">
+                            <div class="icon-wrapper">
                                 <i class="fas fa-mobile-alt"></i>
                             </div>
                             <h3>Centralized Control</h3>
@@ -991,22 +956,31 @@
             </div>
         </section>
 
-        <section class="differentiator" aria-labelledby="differentiator-heading">
+        <section class="section-alt" aria-labelledby="differentiator-heading">
             <div class="container">
                 <div class="content-wrapper">
-                    <h2 id="differentiator-heading" class="text-center">What Sets Us Apart</h2>
-                    <p class="text-center text-content lead">We specialize in understanding the unique needs of individuals requiring support services. Our focus is on the crucial intersection of technology and human support.</p>
+                    <h2 id="differentiator-heading" class="text-center fade-in">What Sets Us Apart</h2>
+                    <p class="text-center text-content lead fade-in">We specialize in understanding the unique needs of individuals requiring support services.</p>
                     <div class="differentiator-grid">
-                        <div class="differentiator-item fade-in">
-                            <h3><i class="fas fa-user-shield"></i> Privacy-First Approach</h3>
+                        <div class="card fade-in">
+                            <div class="card-header">
+                                <i class="fas fa-user-shield" style="color: var(--orange-500); font-size: 1.5rem;"></i>
+                                <h3>Privacy-First Approach</h3>
+                            </div>
                             <p>All solutions designed to protect privacy and uphold dignity.</p>
                         </div>
-                        <div class="differentiator-item fade-in">
-                            <h3><i class="fas fa-plug"></i> Seamless Integration</h3>
+                        <div class="card fade-in">
+                            <div class="card-header">
+                                <i class="fas fa-plug" style="color: var(--orange-500); font-size: 1.5rem;"></i>
+                                <h3>Seamless Integration</h3>
+                            </div>
                             <p>New tech works harmoniously with existing setups.</p>
                         </div>
-                        <div class="differentiator-item fade-in">
-                            <h3><i class="fas fa-users"></i> Empowering Teams</h3>
+                        <div class="card fade-in">
+                            <div class="card-header">
+                                <i class="fas fa-users" style="color: var(--orange-500); font-size: 1.5rem;"></i>
+                                <h3>Empowering Teams</h3>
+                            </div>
                             <p>Enhanced communication and collaboration for support teams.</p>
                         </div>
                     </div>
@@ -1019,16 +993,16 @@
                 <div class="content-wrapper">
                     <h2 id="contact-heading">Let's Discuss Your Technology Needs</h2>
                     <p class="lead text-content">Ready to explore how expert technology consulting can make life easier and more independent?</p>
-                    <div class="contact-info">
-                        <div class="contact-item">
+                    <div class="contact-grid">
+                        <div class="contact-card">
                             <h3><i class="fas fa-envelope"></i> Email</h3>
                             <p><a href="mailto:info@ITC-in.com">info@ITC-in.com</a></p>
                         </div>
-                        <div class="contact-item">
+                        <div class="contact-card">
                             <h3><i class="fas fa-phone"></i> Call</h3>
                             <p><a href="tel:+12605550100">(260) 555-0100</a></p>
                         </div>
-                        <div class="contact-item">
+                        <div class="contact-card">
                             <h3><i class="fas fa-map-marker-alt"></i> Location</h3>
                             <p>Huntington, Indiana</p>
                         </div>
@@ -1039,17 +1013,17 @@
     </main>
 
     <footer>
-        <div class="container">
+        <div class="footer-content">
             <p>&copy; 2025 Integrated Technology Consultants. All rights reserved.</p>
-            <p style="margin-top: var(--space-sm);">
-                <a href="/privacy" style="margin-right: var(--space-md);">Privacy Policy</a>
+            <div class="footer-links">
+                <a href="/privacy">Privacy Policy</a>
                 <a href="/terms">Terms of Service</a>
-            </p>
+            </div>
         </div>
     </footer>
 
     <script>
-        // Enhanced Network Animation with More Visibility and Parallax
+        // Flat Network Animation
         class NetworkAnimation {
             constructor(canvasId) {
                 this.canvas = document.getElementById(canvasId);
@@ -1057,13 +1031,8 @@
 
                 this.ctx = this.canvas.getContext('2d');
                 this.nodes = [];
-                this.connections = [];
-                this.mouse = { x: null, y: null, radius: 150 };
-
-                // Animation state
-                this.scrollY = 0;
+                this.mouse = { x: null, y: null };
                 this.time = 0;
-                this.baseSpeed = 0.5;
 
                 this.init();
             }
@@ -1086,20 +1055,15 @@
 
             createNodes() {
                 this.nodes = [];
-                // More nodes for better visibility
-                const nodeCount = Math.min(Math.floor((window.innerWidth * window.innerHeight) / 12000), 100);
+                const nodeCount = Math.min(Math.floor((window.innerWidth * window.innerHeight) / 20000), 60);
 
                 for (let i = 0; i < nodeCount; i++) {
                     this.nodes.push({
                         x: Math.random() * window.innerWidth,
                         y: Math.random() * window.innerHeight,
-                        baseY: Math.random() * window.innerHeight,
-                        vx: (Math.random() - 0.5) * this.baseSpeed,
-                        vy: (Math.random() - 0.5) * this.baseSpeed,
-                        radius: Math.random() * 3 + 2, // Larger nodes
-                        parallaxFactor: 0.5 + Math.random() * 0.5, // Stronger parallax
-                        pulseOffset: Math.random() * Math.PI * 2,
-                        glowIntensity: Math.random() * 0.5 + 0.5
+                        vx: (Math.random() - 0.5) * 0.2,
+                        vy: (Math.random() - 0.5) * 0.2,
+                        radius: Math.random() * 2 + 1
                     });
                 }
             }
@@ -1114,12 +1078,6 @@
                     }, 150);
                 });
 
-                // Smooth scroll tracking
-                window.addEventListener('scroll', () => {
-                    this.scrollY = window.pageYOffset;
-                }, { passive: true });
-
-                // Mouse tracking
                 document.addEventListener('mousemove', (e) => {
                     this.mouse.x = e.clientX;
                     this.mouse.y = e.clientY;
@@ -1132,129 +1090,66 @@
             }
 
             animate() {
-                this.time += 0.01;
+                this.time += 0.005;
 
                 // Clear canvas
                 this.ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
 
-                // Get theme for colors
-                const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
-                const nodeColor = `rgb(${getComputedStyle(document.documentElement).getPropertyValue('--network-node-color')})`;
+                // Draw connections
+                this.ctx.strokeStyle = getComputedStyle(document.documentElement).getPropertyValue('--network-line-color');
+                this.ctx.lineWidth = 1;
 
-                // Store connections for batch drawing
-                this.connections = [];
+                for (let i = 0; i < this.nodes.length; i++) {
+                    const node = this.nodes[i];
 
-                this.nodes.forEach((node, i) => {
-                    // Enhanced parallax effect
-                    const parallaxOffset = this.scrollY * node.parallaxFactor * 0.5;
-                    node.y = node.baseY - parallaxOffset;
+                    // Update position
+                    node.x += node.vx;
+                    node.y += node.vy;
 
-                    // Organic movement
-                    const waveX = Math.sin(this.time + node.pulseOffset) * 0.3;
-                    const waveY = Math.cos(this.time * 1.2 + node.pulseOffset) * 0.2;
+                    // Wrap around edges
+                    if (node.x < -50) node.x = window.innerWidth + 50;
+                    if (node.x > window.innerWidth + 50) node.x = -50;
+                    if (node.y < -50) node.y = window.innerHeight + 50;
+                    if (node.y > window.innerHeight + 50) node.y = -50;
 
-                    node.x += node.vx + waveX;
-                    node.y += node.vy + waveY;
-
-                    // Boundaries with smooth wrapping
-                    const margin = 100;
-                    if (node.x < -margin) {
-                        node.x = window.innerWidth + margin;
-                        node.baseY = node.y + parallaxOffset;
-                    }
-                    if (node.x > window.innerWidth + margin) {
-                        node.x = -margin;
-                        node.baseY = node.y + parallaxOffset;
-                    }
-                    if (node.y < -margin) {
-                        node.y = window.innerHeight + margin;
-                        node.baseY = node.y + parallaxOffset;
-                    }
-                    if (node.y > window.innerHeight + margin) {
-                        node.y = -margin;
-                        node.baseY = node.y + parallaxOffset;
-                    }
-
-                    // Enhanced mouse interaction
+                    // Mouse interaction
                     if (this.mouse.x && this.mouse.y) {
                         const dx = this.mouse.x - node.x;
                         const dy = this.mouse.y - node.y;
                         const distance = Math.sqrt(dx * dx + dy * dy);
 
-                        if (distance < this.mouse.radius) {
-                            const force = (1 - distance / this.mouse.radius);
-                            const angle = Math.atan2(dy, dx);
-                            node.vx += Math.cos(angle) * force * 0.2;
-                            node.vy += Math.sin(angle) * force * 0.2;
-                            node.glowIntensity = Math.min(node.glowIntensity + 0.05, 1);
+                        if (distance < 100) {
+                            const force = (1 - distance / 100) * 0.02;
+                            node.vx += dx * force;
+                            node.vy += dy * force;
                         }
-                    } else {
-                        node.glowIntensity = Math.max(node.glowIntensity - 0.01, 0.5);
                     }
 
-                    // Velocity damping
+                    // Damping
                     node.vx *= 0.99;
                     node.vy *= 0.99;
 
-                    // Find connections
+                    // Draw connections
                     for (let j = i + 1; j < this.nodes.length; j++) {
                         const other = this.nodes[j];
                         const dx = other.x - node.x;
                         const dy = other.y - node.y;
                         const distance = Math.sqrt(dx * dx + dy * dy);
 
-                        if (distance < 180) { // Increased connection distance
-                            this.connections.push({
-                                from: node,
-                                to: other,
-                                distance: distance,
-                                opacity: (1 - distance / 180) * 0.4
-                            });
+                        if (distance < 120) {
+                            this.ctx.beginPath();
+                            this.ctx.moveTo(node.x, node.y);
+                            this.ctx.lineTo(other.x, other.y);
+                            this.ctx.stroke();
                         }
                     }
-                });
+                }
 
-                // Draw all connections at once
-                this.ctx.strokeStyle = nodeColor;
-                this.connections.forEach(conn => {
-                    const gradient = this.ctx.createLinearGradient(
-                        conn.from.x, conn.from.y,
-                        conn.to.x, conn.to.y
-                    );
-                    gradient.addColorStop(0, `rgba(${nodeColor.match(/\d+/g).join(',')}, ${conn.opacity * conn.from.glowIntensity})`);
-                    gradient.addColorStop(1, `rgba(${nodeColor.match(/\d+/g).join(',')}, ${conn.opacity * conn.to.glowIntensity})`);
-
-                    this.ctx.beginPath();
-                    this.ctx.strokeStyle = gradient;
-                    this.ctx.lineWidth = Math.max(0.5, 2 - conn.distance / 90);
-                    this.ctx.moveTo(conn.from.x, conn.from.y);
-                    this.ctx.lineTo(conn.to.x, conn.to.y);
-                    this.ctx.stroke();
-                });
-
-                // Draw nodes with glow effect
+                // Draw nodes
+                this.ctx.fillStyle = getComputedStyle(document.documentElement).getPropertyValue('--network-node-color');
                 this.nodes.forEach(node => {
-                    const pulse = 1 + Math.sin(this.time * 2 + node.pulseOffset) * 0.2;
-                    const radius = node.radius * pulse;
-
-                    // Glow effect
-                    const glow = this.ctx.createRadialGradient(
-                        node.x, node.y, 0,
-                        node.x, node.y, radius * 4
-                    );
-                    glow.addColorStop(0, `rgba(${nodeColor.match(/\d+/g).join(',')}, ${0.8 * node.glowIntensity})`);
-                    glow.addColorStop(0.5, `rgba(${nodeColor.match(/\d+/g).join(',')}, ${0.3 * node.glowIntensity})`);
-                    glow.addColorStop(1, `rgba(${nodeColor.match(/\d+/g).join(',')}, 0)`);
-
                     this.ctx.beginPath();
-                    this.ctx.arc(node.x, node.y, radius * 4, 0, Math.PI * 2);
-                    this.ctx.fillStyle = glow;
-                    this.ctx.fill();
-
-                    // Core node
-                    this.ctx.beginPath();
-                    this.ctx.arc(node.x, node.y, radius, 0, Math.PI * 2);
-                    this.ctx.fillStyle = `rgba(${nodeColor.match(/\d+/g).join(',')}, ${node.glowIntensity})`;
+                    this.ctx.arc(node.x, node.y, node.radius, 0, Math.PI * 2);
                     this.ctx.fill();
                 });
 
@@ -1262,7 +1157,7 @@
             }
         }
 
-        // Theme Management (Memory-based)
+        // Theme Management
         let currentTheme = 'light';
 
         function setTheme(theme) {
@@ -1272,55 +1167,56 @@
             themeToggle.setAttribute('aria-pressed', theme === 'dark' ? 'true' : 'false');
         }
 
-        // Initialize everything
+        // Initialize
         document.addEventListener('DOMContentLoaded', () => {
-            // Theme initialization
+            // Theme
             const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-            const initialTheme = prefersDark ? 'dark' : 'light';
+            setTheme(prefersDark ? 'dark' : 'light');
 
-            setTheme(initialTheme);
-
-            // Theme toggle
             const themeToggle = document.getElementById('theme-toggle');
             themeToggle.addEventListener('click', () => {
-                const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-                setTheme(newTheme);
+                setTheme(currentTheme === 'dark' ? 'light' : 'dark');
             });
 
-            // Initialize enhanced network animation
-            const networkAnimation = new NetworkAnimation('network-canvas');
+            // Network animation
+            new NetworkAnimation('network-canvas');
+
+            // Mobile menu
+            const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+            const nav = document.getElementById('navigation');
+
+            mobileMenuToggle.addEventListener('click', () => {
+                nav.classList.toggle('active');
+            });
+
+            // Close mobile menu on link click
+            document.querySelectorAll('.nav-item a').forEach(link => {
+                link.addEventListener('click', () => {
+                    nav.classList.remove('active');
+                });
+            });
 
             // Header scroll effect
             const header = document.querySelector('header');
-            let ticking = false;
-
-            function updateHeader() {
-                const scrolled = window.pageYOffset > 50;
-                header.classList.toggle('scrolled', scrolled);
-                ticking = false;
-            }
+            let lastScrollY = 0;
 
             window.addEventListener('scroll', () => {
-                if (!ticking) {
-                    requestAnimationFrame(updateHeader);
-                    ticking = true;
-                }
+                const scrollY = window.pageYOffset;
+                header.classList.toggle('scrolled', scrollY > 50);
+                lastScrollY = scrollY;
             }, { passive: true });
 
-            // Intersection Observer
-            const observerOptions = {
-                threshold: 0.1,
-                rootMargin: '0px 0px -50px 0px'
-            };
-
+            // Intersection Observer for animations
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
                         entry.target.classList.add('visible');
-                        observer.unobserve(entry.target);
                     }
                 });
-            }, observerOptions);
+            }, {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            });
 
             document.querySelectorAll('.fade-in').forEach(el => {
                 observer.observe(el);
@@ -1332,9 +1228,9 @@
                     e.preventDefault();
                     const target = document.querySelector(this.getAttribute('href'));
                     if (target) {
-                        const headerOffset = 100;
+                        const headerHeight = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--header-height')) * 16;
                         const elementPosition = target.getBoundingClientRect().top;
-                        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+                        const offsetPosition = elementPosition + window.pageYOffset - headerHeight - 20;
 
                         window.scrollTo({
                             top: offsetPosition,
