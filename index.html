@@ -236,9 +236,8 @@
             display: block;
         }
 
-        /* Navigation */
-        nav ul {
-            list-style: none;
+        /* Desktop Navigation */
+        .desktop-nav {
             display: flex;
             gap: var(--space-xs);
             align-items: center;
@@ -299,18 +298,138 @@
             aspect-ratio: 1;
         }
 
-        .theme-toggle svg {
-            width: 1.125rem;
-            height: 1.125rem;
+        .theme-toggle i {
+            font-size: 1.125rem;
             display: block;
         }
 
-        #sun-icon {
+        #sun-icon,
+        .sun-icon-mobile {
             display: var(--theme-icon-sun);
         }
 
-        #moon-icon {
+        #moon-icon,
+        .moon-icon-mobile {
             display: var(--theme-icon-moon);
+        }
+
+        /* Mobile Menu Button */
+        .mobile-menu-btn {
+            display: none;
+            background: var(--color-bg-card);
+            border: var(--card-border-width) solid var(--color-border);
+            border-radius: 16px;
+            box-shadow: var(--card-shadow);
+            padding: 0.625rem;
+            cursor: pointer;
+            color: var(--color-text-primary);
+            transition: all 0.3s var(--ease-out-expo);
+            font-size: 1.125rem;
+        }
+
+        .mobile-menu-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--card-shadow-hover);
+            border-color: var(--color-border-hover);
+        }
+
+        .mobile-menu-btn.active {
+            background: var(--orange-500);
+            color: white;
+            border-color: var(--orange-600);
+        }
+
+        /* Mobile Menu Overlay */
+        .mobile-menu-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(4px);
+            z-index: 850;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s var(--ease-out-expo);
+        }
+
+        .mobile-menu-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        /* Mobile Menu */
+        .mobile-menu {
+            position: fixed;
+            top: var(--header-height);
+            right: -100%;
+            width: min(300px, 80vw);
+            height: calc(100vh - var(--header-height));
+            background: var(--color-bg-card);
+            border-left: var(--card-border-width) solid var(--color-border);
+            box-shadow: var(--card-shadow-hover);
+            z-index: 875;
+            transition: right 0.3s var(--ease-out-expo);
+            padding: var(--space-lg);
+            overflow-y: auto;
+        }
+
+        .mobile-menu.active {
+            right: 0;
+        }
+
+        .mobile-menu nav {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-sm);
+        }
+
+        .mobile-menu .nav-item {
+            width: 100%;
+            border-radius: 12px;
+            padding: 1rem;
+            text-align: center;
+        }
+
+        .mobile-menu .nav-item:hover::after {
+            display: none;
+        }
+
+        .mobile-menu .theme-toggle {
+            align-self: center;
+            margin-top: var(--space-md);
+        }
+
+        /* Mobile Media Queries */
+        @media (max-width: 768px) {
+            .desktop-nav {
+                display: none;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .header-container {
+                padding: 0 1rem;
+            }
+
+            /* Adjust spacing for mobile */
+            :root {
+                --space-md: 1rem;
+                --space-lg: 1.5rem;
+                --space-xl: 2rem;
+                --space-2xl: 3rem;
+                --space-3xl: 4rem;
+            }
+        }
+
+        /* Tablet Media Queries */
+        @media (max-width: 1024px) and (min-width: 769px) {
+            .nav-item {
+                padding: 0.5rem 1rem;
+            }
         }
 
         /* Main content */
@@ -500,746 +619,4 @@
         /* Service Grid */
         .service-grid {
             display: grid;
-            gap: var(--card-gap);
-            grid-template-columns: repeat(auto-fit, minmax(min(100%, 350px), 1fr));
-            margin-top: var(--space-lg);
-        }
-
-        /* Feature Grid */
-        .feature-grid {
-            display: grid;
-            gap: var(--card-gap);
-            grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
-            margin-top: var(--space-lg);
-        }
-
-        .feature-card {
-            background: var(--color-bg-card);
-            border-radius: var(--card-radius);
-            padding: var(--card-padding);
-            box-shadow: var(--card-shadow);
-            border: var(--card-border-width) solid var(--color-border);
-            text-align: center;
-            transition: all 0.3s var(--ease-out-expo);
-        }
-
-        .feature-card:hover {
-            transform: translateY(-4px);
-            box-shadow: var(--card-shadow-hover);
-            border-color: var(--color-border-hover);
-        }
-
-        .icon-wrapper {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 4rem;
-            height: 4rem;
-            font-size: 1.75rem;
-            background: var(--orange-100);
-            color: var(--orange-600);
-            border-radius: 16px;
-            margin-bottom: var(--space-md);
-            transition: all 0.3s var(--ease-out-expo);
-        }
-
-        [data-theme="dark"] .icon-wrapper {
-            background: rgba(249, 115, 22, 0.1);
-            color: var(--orange-400);
-        }
-
-        .feature-card:hover .icon-wrapper {
-            transform: scale(1.1);
-            background: var(--orange-500);
-            color: white;
-        }
-
-        /* Service List */
-        .service-list {
-            list-style: none;
-            margin: var(--space-md) 0;
-        }
-
-        .service-list li {
-            display: flex;
-            align-items: flex-start;
-            gap: var(--space-sm);
-            margin-bottom: var(--space-sm);
-            padding: var(--space-sm);
-            background: var(--color-bg-secondary);
-            border-radius: 12px;
-            transition: all 0.3s var(--ease-out-expo);
-        }
-
-        .service-list li:hover {
-            background: var(--color-bg-tertiary);
-            transform: translateX(4px);
-        }
-
-        .service-list i {
-            color: var(--orange-500);
-            margin-top: 0.125rem;
-            flex-shrink: 0;
-        }
-
-        /* Section Backgrounds */
-        .section-alt {
-            background: var(--color-bg-secondary);
-        }
-
-        /* Differentiator Grid */
-        .differentiator-grid {
-            display: grid;
-            gap: var(--card-gap);
-            grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr));
-            margin-top: var(--space-lg);
-        }
-
-        /* Contact Section */
-        .contact-section {
-            background: linear-gradient(135deg, var(--orange-500) 0%, var(--orange-600) 100%);
-            color: white;
-            text-align: center;
-            padding: var(--space-3xl) 0;
-        }
-
-        .contact-section h2,
-        .contact-section p {
-            color: white;
-        }
-
-        .contact-grid {
-            display: grid;
-            gap: var(--card-gap);
-            grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
-            margin: var(--space-2xl) auto 0;
-            max-width: 900px;
-        }
-
-        .contact-card {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            padding: var(--card-padding);
-            border-radius: var(--card-radius);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            transition: all 0.3s var(--ease-out-expo);
-        }
-
-        .contact-card:hover {
-            background: rgba(255, 255, 255, 0.15);
-            transform: translateY(-4px);
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-        }
-
-        .contact-card h3 {
-            color: white;
-            font-size: var(--text-lg);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: var(--space-sm);
-            margin-bottom: var(--space-sm);
-        }
-
-        .contact-card a {
-            color: white;
-            text-decoration: none;
-            font-weight: 500;
-            font-size: var(--text-base);
-            transition: opacity 0.3s var(--ease-out-expo);
-        }
-
-        .contact-card a:hover {
-            opacity: 0.9;
-            text-decoration: underline;
-        }
-
-        /* Footer */
-        footer {
-            background: var(--color-bg-secondary);
-            padding: var(--space-xl) 0;
-            text-align: center;
-            border-top: 1px solid var(--color-border);
-        }
-
-        .footer-content {
-            max-width: var(--container-max);
-            margin: 0 auto;
-            padding: 0 var(--space-md);
-        }
-
-        .footer-links {
-            display: flex;
-            gap: var(--space-lg);
-            justify-content: center;
-            margin-top: var(--space-sm);
-            flex-wrap: wrap;
-        }
-
-        footer a {
-            color: var(--color-text-secondary);
-            text-decoration: none;
-            font-size: var(--text-sm);
-            transition: color 0.3s var(--ease-out-expo);
-        }
-
-        footer a:hover {
-            color: var(--orange-500);
-        }
-
-        /* Mobile Navigation */
-        .mobile-menu-toggle {
-            display: none;
-            background: var(--color-bg-card);
-            border: var(--card-border-width) solid var(--color-border);
-            border-radius: 12px;
-            padding: 0.5rem;
-            box-shadow: var(--card-shadow);
-            color: var(--color-text-primary);
-            cursor: pointer;
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .mobile-menu-toggle {
-                display: block;
-            }
-
-            nav {
-                position: fixed;
-                top: var(--header-height);
-                left: 0;
-                right: 0;
-                background: var(--color-bg-primary);
-                border-bottom: 1px solid var(--color-border);
-                transform: translateY(-100%);
-                transition: transform 0.3s var(--ease-out-expo);
-                box-shadow: var(--card-shadow);
-            }
-
-            nav.active {
-                transform: translateY(0);
-            }
-
-            nav ul {
-                flex-direction: column;
-                padding: var(--space-md);
-                gap: var(--space-sm);
-            }
-
-            .nav-item {
-                width: 100%;
-                text-align: center;
-            }
-
-            .theme-toggle {
-                width: auto;
-            }
-
-            .hero-content {
-                padding: var(--space-lg);
-            }
-
-            .about-card {
-                padding: var(--space-lg);
-            }
-
-            .service-grid,
-            .feature-grid,
-            .differentiator-grid,
-            .contact-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .company-logo {
-                height: 1.75rem;
-            }
-
-            .footer-links {
-                flex-direction: column;
-                gap: var(--space-sm);
-            }
-        }
-
-        /* Reduced Motion */
-        @media (prefers-reduced-motion: reduce) {
-            *,
-            *::before,
-            *::after {
-                animation-duration: 0.01ms !important;
-                animation-iteration-count: 1 !important;
-                transition-duration: 0.01ms !important;
-                scroll-behavior: auto !important;
-            }
-
-            #network-canvas {
-                display: none;
-            }
-        }
-
-        /* Focus Styles */
-        :focus-visible {
-            outline: 3px solid var(--orange-500);
-            outline-offset: 3px;
-            border-radius: 4px;
-        }
-
-        /* Utility Classes */
-        .text-center { text-align: center; }
-        .mx-auto { margin-left: auto; margin-right: auto; }
-        .hidden { display: none !important; }
-        .text-strong { font-weight: 600; color: var(--color-text-primary); }
-    </style>
-</head>
-<body>
-    <a href="#main" class="skip-link">Skip to main content</a>
-
-    <canvas id="network-canvas" aria-hidden="true"></canvas>
-
-    <header>
-        <div class="header-container">
-            <div class="logo-card">
-                <img src="https://raw.githubusercontent.com/itc-in/assets/refs/heads/main/images/logo.svg"
-                     alt="Integrated Technology Consultants"
-                     class="company-logo">
-            </div>
-            
-            <button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Toggle navigation">
-                <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                    <path d="M3 12h18M3 6h18M3 18h18"></path>
-                </svg>
-            </button>
-
-            <nav id="navigation" aria-label="Main navigation">
-                <ul>
-                    <li class="nav-item"><a href="#about">About</a></li>
-                    <li class="nav-item"><a href="#services">Services</a></li>
-                    <li class="nav-item"><a href="#solutions">Solutions</a></li>
-                    <li class="nav-item"><a href="#contact">Contact</a></li>
-                    <li>
-                        <button class="theme-toggle"
-                                id="theme-toggle"
-                                aria-label="Toggle dark mode"
-                                aria-pressed="false">
-                            <svg id="sun-icon" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
-                                <path fill-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-2.172 4.243a1 1 0 011.414 0l.707.707a1 1 0 01-1.414 1.414l-.707-.707a1 1 0 010-1.414zM4.24 5.636a1 1 0 00-1.414 1.414l.707.707a1 1 0 001.414-1.414l-.707-.707zM10 16a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM3 11a1 1 0 100-2H2a1 1 0 100 2h1z" clip-rule="evenodd"></path>
-                            </svg>
-                            <svg id="moon-icon" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
-                                <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
-                            </svg>
-                        </button>
-                    </li>
-                </ul>
-            </nav>
-        </div>
-    </header>
-
-    <main id="main">
-        <section class="hero">
-            <div class="container">
-                <div class="hero-content">
-                    <h1>Integrated Technology Consultants</h1>
-                    <p class="lead">Expert guidance to help you live more independently with easy-to-use technology.</p>
-                    <a href="#contact" class="button">
-                        Get Started Today
-                        <i class="fas fa-arrow-right"></i>
-                    </a>
-                </div>
-            </div>
-        </section>
-
-        <section id="about" aria-labelledby="about-heading">
-            <div class="container">
-                <div class="content-wrapper">
-                    <h2 id="about-heading" class="text-center fade-in">Your Technology Partners</h2>
-                    <div class="about-card fade-in">
-                        <div class="text-content">
-                            <p>Located in Huntington, Indiana, Integrated Technology Consultants (ITC) specializes in <span class="text-strong">helping people of all abilities use technology to live more freely and independently</span>. We are experts in assessing your needs and recommending smart home devices, remote support tools, and other assistive technologies that fit your unique life.</p>
-                            <p>Our core mission is to simplify daily life and enhance fulfillment by <span class="text-strong">matching the right technology to your specific requirements and goals</span>. We don't just install devices; we provide the consultation and guidance needed to ensure you or your clients can confidently use these tools.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="services" class="section-alt" aria-labelledby="services-heading">
-            <div class="container">
-                <div class="content-wrapper">
-                    <h2 id="services-heading" class="text-center fade-in">Our Consulting Services</h2>
-                    <div class="service-grid">
-                        <div class="card fade-in">
-                            <div class="card-header">
-                                <div class="icon-wrapper">
-                                    <i class="fas fa-hands-helping"></i>
-                                </div>
-                                <h3>Assistive Technology Consulting</h3>
-                            </div>
-                            <p>We provide <span class="text-strong">expert advice, selection, and setup assistance</span> for technology that empowers individuals, especially those with Intellectual and Developmental Disabilities (IDD).</p>
-                            <ul class="service-list">
-                                <li><i class="fas fa-home"></i>Voice-controlled smart home systems</li>
-                                <li><i class="fas fa-video"></i>Safety and remote support systems</li>
-                                <li><i class="fas fa-brain"></i>Cognitive support technology</li>
-                                <li><i class="fas fa-chart-line"></i>Personalized integration planning</li>
-                            </ul>
-                        </div>
-                        <div class="card fade-in">
-                            <div class="card-header">
-                                <div class="icon-wrapper">
-                                    <i class="fas fa-cogs"></i>
-                                </div>
-                                <h3>IT Infrastructure Consulting</h3>
-                            </div>
-                            <p>Comprehensive IT consulting for organizations, ensuring robust and reliable technology foundations.</p>
-                            <ul class="service-list">
-                                <li><i class="fas fa-wifi"></i>Network design and implementation</li>
-                                <li><i class="fas fa-graduation-cap"></i>Educational technology planning</li>
-                                <li><i class="fas fa-headset"></i>System maintenance strategies</li>
-                                <li><i class="fas fa-shield-alt"></i>Security and access control</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="solutions" aria-labelledby="solutions-heading">
-            <div class="container">
-                <div class="content-wrapper">
-                    <h2 id="solutions-heading" class="text-center fade-in">Technology Solutions</h2>
-                    <p class="text-center text-content lead fade-in">We help you navigate, select, and implement a wide range of technologies designed for independence.</p>
-                    <div class="feature-grid">
-                        <div class="feature-card fade-in">
-                            <div class="icon-wrapper">
-                                <i class="fas fa-home"></i>
-                            </div>
-                            <h3>Smart Home Setup</h3>
-                            <p>Voice-controlled home systems for easier, more independent living.</p>
-                        </div>
-                        <div class="feature-card fade-in">
-                            <div class="icon-wrapper">
-                                <i class="fas fa-video"></i>
-                            </div>
-                            <h3>Remote Support Systems</h3>
-                            <p>Secure cameras and sensors to enable remote support with privacy.</p>
-                        </div>
-                        <div class="feature-card fade-in">
-                            <div class="icon-wrapper">
-                                <i class="fas fa-door-open"></i>
-                            </div>
-                            <h3>Smart Entry Solutions</h3>
-                            <p>Secure, key-free access solutions for your home or facility.</p>
-                        </div>
-                        <div class="feature-card fade-in">
-                            <div class="icon-wrapper">
-                                <i class="fas fa-lightbulb"></i>
-                            </div>
-                            <h3>Automated Lighting</h3>
-                            <p>Lights that activate when needed, enhancing safety and efficiency.</p>
-                        </div>
-                        <div class="feature-card fade-in">
-                            <div class="icon-wrapper">
-                                <i class="fas fa-bell"></i>
-                            </div>
-                            <h3>Custom Alerts</h3>
-                            <p>Systems to send important updates to designated caregivers.</p>
-                        </div>
-                        <div class="feature-card fade-in">
-                            <div class="icon-wrapper">
-                                <i class="fas fa-mobile-alt"></i>
-                            </div>
-                            <h3>Centralized Control</h3>
-                            <p>Manage all systems easily from a smartphone or tablet.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="section-alt" aria-labelledby="differentiator-heading">
-            <div class="container">
-                <div class="content-wrapper">
-                    <h2 id="differentiator-heading" class="text-center fade-in">What Sets Us Apart</h2>
-                    <p class="text-center text-content lead fade-in">We specialize in understanding the unique needs of individuals requiring support services.</p>
-                    <div class="differentiator-grid">
-                        <div class="card fade-in">
-                            <div class="card-header">
-                                <i class="fas fa-user-shield" style="color: var(--orange-500); font-size: 1.5rem;"></i>
-                                <h3>Privacy-First Approach</h3>
-                            </div>
-                            <p>All solutions designed to protect privacy and uphold dignity.</p>
-                        </div>
-                        <div class="card fade-in">
-                            <div class="card-header">
-                                <i class="fas fa-plug" style="color: var(--orange-500); font-size: 1.5rem;"></i>
-                                <h3>Seamless Integration</h3>
-                            </div>
-                            <p>New tech works harmoniously with existing setups.</p>
-                        </div>
-                        <div class="card fade-in">
-                            <div class="card-header">
-                                <i class="fas fa-users" style="color: var(--orange-500); font-size: 1.5rem;"></i>
-                                <h3>Empowering Teams</h3>
-                            </div>
-                            <p>Enhanced communication and collaboration for support teams.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="contact" class="contact-section" aria-labelledby="contact-heading">
-            <div class="container">
-                <div class="content-wrapper">
-                    <h2 id="contact-heading">Let's Discuss Your Technology Needs</h2>
-                    <p class="lead text-content">Ready to explore how expert technology consulting can make life easier and more independent?</p>
-                    <div class="contact-grid">
-                        <div class="contact-card">
-                            <h3><i class="fas fa-envelope"></i> Email</h3>
-                            <p><a href="mailto:info@ITC-in.com">info@ITC-in.com</a></p>
-                        </div>
-                        <div class="contact-card">
-                            <h3><i class="fas fa-phone"></i> Call</h3>
-                            <p><a href="tel:+12605550100">(260) 555-0100</a></p>
-                        </div>
-                        <div class="contact-card">
-                            <h3><i class="fas fa-map-marker-alt"></i> Location</h3>
-                            <p>Huntington, Indiana</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <footer>
-        <div class="footer-content">
-            <p>&copy; 2025 Integrated Technology Consultants. All rights reserved.</p>
-            <div class="footer-links">
-                <a href="/privacy">Privacy Policy</a>
-                <a href="/terms">Terms of Service</a>
-            </div>
-        </div>
-    </footer>
-
-    <script>
-        // Flat Network Animation
-        class NetworkAnimation {
-            constructor(canvasId) {
-                this.canvas = document.getElementById(canvasId);
-                if (!this.canvas) return;
-
-                this.ctx = this.canvas.getContext('2d');
-                this.nodes = [];
-                this.mouse = { x: null, y: null };
-                this.time = 0;
-
-                this.init();
-            }
-
-            init() {
-                this.resize();
-                this.createNodes();
-                this.addEventListeners();
-                this.animate();
-            }
-
-            resize() {
-                const dpr = Math.min(window.devicePixelRatio || 1, 2);
-                this.canvas.width = window.innerWidth * dpr;
-                this.canvas.height = window.innerHeight * dpr;
-                this.canvas.style.width = window.innerWidth + 'px';
-                this.canvas.style.height = window.innerHeight + 'px';
-                this.ctx.scale(dpr, dpr);
-            }
-
-            createNodes() {
-                this.nodes = [];
-                const nodeCount = Math.min(Math.floor((window.innerWidth * window.innerHeight) / 20000), 60);
-
-                for (let i = 0; i < nodeCount; i++) {
-                    this.nodes.push({
-                        x: Math.random() * window.innerWidth,
-                        y: Math.random() * window.innerHeight,
-                        vx: (Math.random() - 0.5) * 0.2,
-                        vy: (Math.random() - 0.5) * 0.2,
-                        radius: Math.random() * 2 + 1
-                    });
-                }
-            }
-
-            addEventListeners() {
-                let resizeTimeout;
-                window.addEventListener('resize', () => {
-                    clearTimeout(resizeTimeout);
-                    resizeTimeout = setTimeout(() => {
-                        this.resize();
-                        this.createNodes();
-                    }, 150);
-                });
-
-                document.addEventListener('mousemove', (e) => {
-                    this.mouse.x = e.clientX;
-                    this.mouse.y = e.clientY;
-                });
-
-                document.addEventListener('mouseleave', () => {
-                    this.mouse.x = null;
-                    this.mouse.y = null;
-                });
-            }
-
-            animate() {
-                this.time += 0.005;
-
-                // Clear canvas
-                this.ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
-
-                // Draw connections
-                this.ctx.strokeStyle = getComputedStyle(document.documentElement).getPropertyValue('--network-line-color');
-                this.ctx.lineWidth = 1;
-
-                for (let i = 0; i < this.nodes.length; i++) {
-                    const node = this.nodes[i];
-
-                    // Update position
-                    node.x += node.vx;
-                    node.y += node.vy;
-
-                    // Wrap around edges
-                    if (node.x < -50) node.x = window.innerWidth + 50;
-                    if (node.x > window.innerWidth + 50) node.x = -50;
-                    if (node.y < -50) node.y = window.innerHeight + 50;
-                    if (node.y > window.innerHeight + 50) node.y = -50;
-
-                    // Mouse interaction
-                    if (this.mouse.x && this.mouse.y) {
-                        const dx = this.mouse.x - node.x;
-                        const dy = this.mouse.y - node.y;
-                        const distance = Math.sqrt(dx * dx + dy * dy);
-
-                        if (distance < 100) {
-                            const force = (1 - distance / 100) * 0.02;
-                            node.vx += dx * force;
-                            node.vy += dy * force;
-                        }
-                    }
-
-                    // Damping
-                    node.vx *= 0.99;
-                    node.vy *= 0.99;
-
-                    // Draw connections
-                    for (let j = i + 1; j < this.nodes.length; j++) {
-                        const other = this.nodes[j];
-                        const dx = other.x - node.x;
-                        const dy = other.y - node.y;
-                        const distance = Math.sqrt(dx * dx + dy * dy);
-
-                        if (distance < 120) {
-                            this.ctx.beginPath();
-                            this.ctx.moveTo(node.x, node.y);
-                            this.ctx.lineTo(other.x, other.y);
-                            this.ctx.stroke();
-                        }
-                    }
-                }
-
-                // Draw nodes
-                this.ctx.fillStyle = getComputedStyle(document.documentElement).getPropertyValue('--network-node-color');
-                this.nodes.forEach(node => {
-                    this.ctx.beginPath();
-                    this.ctx.arc(node.x, node.y, node.radius, 0, Math.PI * 2);
-                    this.ctx.fill();
-                });
-
-                requestAnimationFrame(() => this.animate());
-            }
-        }
-
-        // Theme Management
-        let currentTheme = 'light';
-
-        function setTheme(theme) {
-            currentTheme = theme;
-            document.documentElement.setAttribute('data-theme', theme);
-            const themeToggle = document.getElementById('theme-toggle');
-            themeToggle.setAttribute('aria-pressed', theme === 'dark' ? 'true' : 'false');
-        }
-
-        // Initialize
-        document.addEventListener('DOMContentLoaded', () => {
-            // Theme
-            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-            setTheme(prefersDark ? 'dark' : 'light');
-
-            const themeToggle = document.getElementById('theme-toggle');
-            themeToggle.addEventListener('click', () => {
-                setTheme(currentTheme === 'dark' ? 'light' : 'dark');
-            });
-
-            // Network animation
-            new NetworkAnimation('network-canvas');
-
-            // Mobile menu
-            const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
-            const nav = document.getElementById('navigation');
-
-            mobileMenuToggle.addEventListener('click', () => {
-                nav.classList.toggle('active');
-            });
-
-            // Close mobile menu on link click
-            document.querySelectorAll('.nav-item a').forEach(link => {
-                link.addEventListener('click', () => {
-                    nav.classList.remove('active');
-                });
-            });
-
-            // Header scroll effect
-            const header = document.querySelector('header');
-            let lastScrollY = 0;
-
-            window.addEventListener('scroll', () => {
-                const scrollY = window.pageYOffset;
-                header.classList.toggle('scrolled', scrollY > 50);
-                lastScrollY = scrollY;
-            }, { passive: true });
-
-            // Intersection Observer for animations
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('visible');
-                    }
-                });
-            }, {
-                threshold: 0.1,
-                rootMargin: '0px 0px -50px 0px'
-            });
-
-            document.querySelectorAll('.fade-in').forEach(el => {
-                observer.observe(el);
-            });
-
-            // Smooth scrolling
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function (e) {
-                    e.preventDefault();
-                    const target = document.querySelector(this.getAttribute('href'));
-                    if (target) {
-                        const headerHeight = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--header-height')) * 16;
-                        const elementPosition = target.getBoundingClientRect().top;
-                        const offsetPosition = elementPosition + window.pageYOffset - headerHeight - 20;
-
-                        window.scrollTo({
-                            top: offsetPosition,
-                            behavior: 'smooth'
-                        });
-                    }
-                });
-            });
-        });
-    </script>
-</body>
-</html>
+          
