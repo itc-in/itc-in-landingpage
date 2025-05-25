@@ -218,7 +218,7 @@
 
         /* Logo Card */
         .logo-card {
-            background: var(--color-bg-card);
+            background: var(--color-bg-tertiary); /* Changed from --color-bg-card to --color-bg-tertiary */
             padding: var(--space-xs) var(--space-sm);
             border-radius: 16px;
             border: var(--card-border-width) solid var(--color-border);
@@ -302,12 +302,10 @@
             color: var(--color-text-primary);
             padding: 0.625rem;
             aspect-ratio: 1;
-        }
-
-        .theme-toggle svg {
-            width: 1.125rem;
-            height: 1.125rem;
-            display: block;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: var(--space-xs);
         }
 
         #sun-icon {
@@ -764,13 +762,15 @@
             }
 
             .theme-toggle {
-                width: 100%;
-                padding: 0.875rem;
+                /* width: 100%; */ /* Removed to make it not a giant card */
+                padding: 0.625rem; /* Adjusted padding to match desktop */
+                align-self: center; /* Center it if nav ul is still column */
             }
 
             .logo-card {
-                flex: 1;
-                max-width: 200px;
+                /* flex: 1; */ /* Removed to allow shrinking */
+                /* max-width: 200px; */ /* Removed to allow shrinking */
+                width: fit-content; /* Allow card to size to its content */
             }
 
             .company-logo {
@@ -844,12 +844,21 @@
     <header>
         <div class="header-container">
             <div class="logo-card">
-                <img src="https://raw.githubusercontent.com/itc-in/assets/refs/heads/main/images/logo.svg"
-                     alt="Integrated Technology Consultants"
-                     class="company-logo">
+                <img src="https://raw.githubusercontent.com/itc-in/assets/refs/heads/main/images/logo.svg" alt="Integrated Technology Consultants Logo" class="company-logo">
             </div>
-            
-            <button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Toggle navigation" aria-expanded="false">
+            <nav id="navigation" aria-label="Main navigation">
+                <ul>
+                    <li class="nav-item"><a href="#about">About</a></li>
+                    <li class="nav-item"><a href="#services">Services</a></li>
+                    <li class="nav-item"><a href="#differentiators">Why Us</a></li>
+                    <li class="nav-item"><a href="#contact">Contact</a></li>
+                    <li class="theme-toggle" id="theme-toggle" title="Toggle theme" aria-label="Toggle theme">
+                        <i class="fas fa-sun" id="sun-icon"></i>
+                        <i class="fas fa-moon" id="moon-icon"></i>
+                    </li>
+                </ul>
+            </nav>
+            <button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="navigation">
                 <svg class="menu-icon" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                     <path d="M3 12h18M3 6h18M3 18h18"></path>
                 </svg>
@@ -857,28 +866,6 @@
                     <path d="M6 18L18 6M6 6l12 12"></path>
                 </svg>
             </button>
-
-            <nav id="navigation" aria-label="Main navigation">
-                <ul>
-                    <li class="nav-item"><a href="#about">About</a></li>
-                    <li class="nav-item"><a href="#services">Services</a></li>
-                    <li class="nav-item"><a href="#solutions">Solutions</a></li>
-                    <li class="nav-item"><a href="#contact">Contact</a></li>
-                    <li>
-                        <button class="theme-toggle"
-                                id="theme-toggle"
-                                aria-label="Toggle dark mode"
-                                aria-pressed="false">
-                            <svg id="sun-icon" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
-                                <path fill-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-2.172 4.243a1 1 0 011.414 0l.707.707a1 1 0 01-1.414 1.414l-.707-.707a1 1 0 010-1.414zM4.24 5.636a1 1 0 00-1.414 1.414l.707.707a1 1 0 001.414-1.414l-.707-.707zM10 16a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM3 11a1 1 0 100-2H2a1 1 0 100 2h1z" clip-rule="evenodd"></path>
-                            </svg>
-                            <svg id="moon-icon" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
-                                <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
-                            </svg>
-                        </button>
-                    </li>
-                </ul>
-            </nav>
         </div>
     </header>
 
@@ -887,7 +874,7 @@
             <div class="container">
                 <div class="hero-content">
                     <h1>Integrated Technology Consultants</h1>
-                    <p class="lead">Expert guidance to help you live more independently with easy-to-use technology.</p>
+                    <p class="lead">Independent living with easy-to-use technology.</p>
                     <a href="#contact" class="button">
                         Get Started Today
                         <i class="fas fa-arrow-right"></i>
