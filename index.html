@@ -562,45 +562,44 @@
         <p>About how many do you have? Who ends up dealing with them today? What keeps becoming a headache?</p>
         <p>You do not need the right terminology. We just need enough information to know whether ongoing computer maintenance makes sense for your business.</p>
       </div>
-      <form id="contactForm">
-        <div class="field-grid">
-          <div class="field">
-            <label for="name">Your name</label>
-            <input id="name" name="name" required autocomplete="name" />
-          </div>
-          <div class="field">
-            <label for="company">Business</label>
-            <input id="company" name="company" required autocomplete="organization" />
-          </div>
-          <div class="field">
-            <label for="email">Email</label>
-            <input id="email" name="email" type="email" required autocomplete="email" />
-          </div>
-          <div class="field">
-            <label for="computers">Approx. computers</label>
-            <select id="computers" name="computers">
-              <option>1–4</option>
-              <option selected>5–10</option>
-              <option>11–20</option>
-              <option>21–40</option>
-              <option>41–50</option>
-              <option>More than 50</option>
-            </select>
-          </div>
-          <div class="field full">
-            <label for="message">What would you like to stop worrying about?</label>
-            <textarea id="message" name="message" placeholder="A sentence or two is plenty."></textarea>
-          </div>
-        </div>
-        <div class="form-bottom">
-          <button class="btn primary" type="submit">
-            Start the conversation 
-            <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          </button>
-          <span class="form-note">This mockup opens a prepared email. A production site would submit directly to ITC.</span>
-        </div>
-        <div id="formStatus" aria-live="polite"></div>
-      </form>
+     <form id="contactForm" action="https://itc-contact-form.josh-e-goss.workers.dev" method="POST">
+  <div class="field-grid">
+    <div class="field">
+      <label for="name">Your name</label>
+      <input id="name" name="name" required autocomplete="name" />
+    </div>
+    <div class="field">
+      <label for="company">Business</label>
+      <input id="company" name="company" required autocomplete="organization" />
+    </div>
+    <div class="field">
+      <label for="email">Email</label>
+      <input id="email" name="email" type="email" required autocomplete="email" />
+    </div>
+    <div class="field">
+      <label for="computers">Approx. computers</label>
+      <select id="computers" name="computers">
+        <option>1–4</option>
+        <option selected>5–10</option>
+        <option>11–20</option>
+        <option>21–40</option>
+        <option>41–50</option>
+        <option>More than 50</option>
+      </select>
+    </div>
+    <div class="field full">
+      <label for="message">What would you like to stop worrying about?</label>
+      <textarea id="message" name="message" placeholder="A sentence or two is plenty."></textarea>
+    </div>
+  </div>
+  <div class="form-bottom">
+    <button class="btn primary" type="submit" id="submitBtn">
+      Start the conversation 
+      <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </button>
+  </div>
+  <div id="formStatus" aria-live="polite"></div>
+</form>
     </div>
   </section>
 </main>
@@ -609,28 +608,44 @@
   <div class="wrap footer-row">
     <div>
       <strong>Integrated Technology Consultants LLC</strong>
-      <p>Business computer maintenance • Wabash, Indiana</p>
+      <p>Business computer maintenance • Northeast, Indiana</p>
     </div>
     <p>© <span id="year"></span> Integrated Technology Consultants LLC</p>
   </div>
 </footer>
 
 <script>
-  document.getElementById('year').textContent = new Date().getFullYear();
+  const contactForm = document.getElementById('contactForm');
+  const formStatus = document.getElementById('formStatus');
+  const submitBtn = document.getElementById('submitBtn');
 
-  document.getElementById('contactForm').addEventListener('submit', function(e){
+  contactForm.addEventListener('submit', async function(e) {
     e.preventDefault();
-    const f = new FormData(this);
-    const subject = encodeURIComponent('Business computer maintenance inquiry — ' + (f.get('company') || 'Website'));
-    const body = encodeURIComponent(
-      'Name: ' + (f.get('name') || '') + '\n' +
-      'Business: ' + (f.get('company') || '') + '\n' +
-      'Email: ' + (f.get('email') || '') + '\n' +
-      'Approx. computers: ' + (f.get('computers') || '') + '\n\n' +
-      'What they would like to stop worrying about:\n' + (f.get('message') || '')
-    );
-    document.getElementById('formStatus').textContent = 'Opening your email app…';
-    window.location.href = 'mailto:admin@itc-in.com?subject=' + subject + '&body=' + body;
+    submitBtn.disabled = true;
+    formStatus.style.color = 'var(--ink)';
+    formStatus.textContent = 'Sending message...';
+
+    try {
+      const response = await fetch(this.action, {
+        method: 'POST',
+        body: new FormData(this)
+      });
+
+      const data = await response.json();
+
+      if (response.ok && data.success) {
+        formStatus.style.color = 'var(--green)';
+        formStatus.textContent = 'Thank you! Your message has been sent.';
+        contactForm.reset();
+      } else {
+        throw new Error(data.error || 'Failed to send message.');
+      }
+    } catch (err) {
+      formStatus.style.color = 'var(--accent-dark)';
+      formStatus.textContent = err.message || 'Something went wrong. Please try again.';
+    } finally {
+      submitBtn.disabled = false;
+    }
   });
 </script>
 </body>
