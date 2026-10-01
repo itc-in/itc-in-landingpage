@@ -615,38 +615,45 @@
 </footer>
 
 <script>
-  const contactForm = document.getElementById('contactForm');
-  const formStatus = document.getElementById('formStatus');
-  const submitBtn = document.getElementById('submitBtn');
+contactForm.addEventListener('submit', async function(e) {
+  e.preventDefault();
+  submitBtn.disabled = true;
+  formStatus.style.color = 'var(--ink)';
+  formStatus.textContent = 'Sending message...';
 
-  contactForm.addEventListener('submit', async function(e) {
-    e.preventDefault();
-    submitBtn.disabled = true;
-    formStatus.style.color = 'var(--ink)';
-    formStatus.textContent = 'Sending message...';
+  try {
+    const response = await fetch(this.action, {
+      method: 'POST',
+      body: new FormData(this)
+    });
 
-    try {
-      const response = await fetch(this.action, {
-        method: 'POST',
-        body: new FormData(this)
-      });
-
-      const data = await response.json();
-
-      if (response.ok && data.success) {
-        formStatus.style.color = 'var(--green)';
-        formStatus.textContent = 'Thank you! Your message has been sent.';
-        contactForm.reset();
-      } else {
-        throw new Error(data.error || 'Failed to send message.');
+    // Read response as raw text first
+    const responseText = await response.text();
+    
+    // Safely parse JSON if text exists
+    let data = {};
+    if (responseText) {
+      try {
+        data = JSON.parse(responseText);
+      } catch (parseErr) {
+        throw new Error(`Server returned non-JSON response: ${responseText || 'Empty response'}`);
       }
-    } catch (err) {
-      formStatus.style.color = 'var(--accent-dark)';
-      formStatus.textContent = err.message || 'Something went wrong. Please try again.';
-    } finally {
-      submitBtn.disabled = false;
     }
-  });
+
+    if (response.ok && data.success) {
+      formStatus.style.color = 'var(--green)';
+      formStatus.textContent = 'Thank you! Your message has been sent.';
+      contactForm.reset();
+    } else {
+      throw new Error(data.error || `Server error (${response.status}): ${responseText}`);
+    }
+  } catch (err) {
+    formStatus.style.color = 'var(--accent-dark)';
+    formStatus.textContent = err.message || 'Something went wrong. Please try again.';
+  } finally {
+    submitBtn.disabled = false;
+  }
+});
 </script>
 </body>
 </html>
